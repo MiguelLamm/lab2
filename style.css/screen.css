@@ -1,3 +1,42 @@
-*{
+* {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 300px;
+    grid-template-rows: 100px 80px 245px 1fr 150px;
+    gap: 1px 1px;
+    grid-template-areas: "logo topbar account""logo container container""nav container container"". container container""logout container container";
+}
+
+.logo {
+    grid-area: logo;
+    font-size: 50px;
+}
+
+.topbar {
+    grid-area: topbar;
+}
+
+.account {
+    grid-area: account;
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.logout {
+    grid-area: logout;
+}
+
+.container {
+    grid-area: container;
 }
