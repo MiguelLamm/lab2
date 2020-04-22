@@ -38,55 +38,6 @@
   <div class="container">container</div>
 </div>
 </body>
-<style>
-    * {
-    box-sizing: border-box;
-}
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 200px 1fr 300px;
-    grid-template-rows: 100px 80px 245px 20vh 150px;
-    gap: 1px 1px;
-    grid-template-areas: "logo topbar account""logo container container""nav container container"". container container""logout container container";
-}
-
-.logo {
-    grid-area: logo;
-    font-size: 50px;
-    border:1px solid #000;
-}
-
-.topbar {
-    grid-area: topbar;
-    border:1px solid #000;
-}
-
-.account {
-    grid-area: account;
-    border:1px solid #000;
-}
-
-.nav {
-    grid-area: nav;
-    border:1px solid #000;
-}
-
-.logout {
-    grid-area: logout;
-    border:1px solid #000;
-}
-
-.container {
-    grid-area: container;
-    border:1px solid #000;
-}
-</style>
 
 </html>
