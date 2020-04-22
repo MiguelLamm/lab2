@@ -41,47 +41,43 @@ if(isset($_SESSION['naam'])){
 <head>
   <meta charset="UTF-8">
   <title>login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/screen.css">
 </head>
 <body>
-	<div class="netflixLogin">
-		<div class="form form--login">
-			<form class="formulier" action="" method="post">
-                <!--<img class="login__logo" src="images/spotlessFULL.png" alt="logo">-->
 
-				<?php if (isset($error)): ?>
-				<div class="form__error">
-					<p>
-						Verkeerde email of wachtwoord ingevoerd. Probeer opnieuw.
-					</p>
-				</div>
-				<?php endif; ?>
+    <div id="banner"></div>
 
-				<div class="form__field">
-					<label for="Email">Email</label>
-					<input type="text" name="email" placeholder="john.doe@email.com">
-				</div>
-				<div class="form__field">
-					<label for="Password">Password</label>
-                    <input type="password" name="password" placeholder="*****">
-                    
-				</div>
+    <div id="geen_lid"><p>Nog niet geregistreerd? <a href="register.php">Klik hier.</a></p></div>
 
-				<div class="form__submit">
-                    <input type="submit" value="Sign in" class="btn btn--primary">
-				</div>
-                
-                <div class="form__submit">
-                <input type="checkbox" id="rememberMe"><label for="rememberMe" class="label__inline">Remember me</label>
-                </div>
+    <?php if (isset($error)): ?>
+        <div class="form__error">
+            <p>Verkeerde email of wachtwoord ingevoerd. Probeer opnieuw.</p>
+        </div>
+    <?php endif; ?>
 
-				<div class="register">
-                    <p>No account yet?</p>
-                    <a href="register.php">Sign up here</a>
-				</div>
-			</form>
-		</div>
-	</div>
+    <form class="formulier" id="form" action="" method="post">
+        <div class="aanmelden">
+            <div id="form_title">
+                <h2>Meld je aan bij FoodCart!</h2>
+            </div>
+
+            <div class="form__field">
+                <label for="email">Email</label>
+                <input type="text" class="input" id="email" name="email" placeholder="john.doe@email.com">
+            </div>
+            
+            <div class="form__field">
+                <label for="password">Password</label>
+                <input type="password" class="input" id="wachtwoord" name="password" placeholder="*****">
+            </div>
+
+            <div class="form__submit">
+                <input type="submit" value="Sign in" class="submit">
+            </div>
+        </div>
+    </form>
+
 </body>
 </html>
