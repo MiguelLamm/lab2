@@ -139,7 +139,7 @@
             }
         }
         catch (Throwable $t){
-            echo "<h1>ER LIEP IETS MIS</h1>";
+            
         }
     }
 }

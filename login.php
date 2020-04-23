@@ -31,7 +31,7 @@ if(isset($_SESSION['naam'])){
             
             echo '<script>window.location = "index.php"</script>';
         } else {
-            echo "yeet lmao";
+            $error= "Verkeerde email of wachtwoord ingevoerd. Probeer opnieuw";
         }
 
 }
@@ -51,11 +51,9 @@ if(isset($_SESSION['naam'])){
 
     <div id="geen_lid"><p>Nog niet geregistreerd? <a href="register.php">Klik hier.</a></p></div>
 
-    <?php if (isset($error)): ?>
-        <div class="form__error">
-            <p>Verkeerde email of wachtwoord ingevoerd. Probeer opnieuw.</p>
-        </div>
-    <?php endif; ?>
+
+
+   
 
     <form class="formulier" id="form" action="" method="post">
         <div class="aanmelden">
@@ -72,7 +70,15 @@ if(isset($_SESSION['naam'])){
                 <label for="password">Password</label>
                 <input type="password" class="input" id="wachtwoord" name="password" placeholder="*****">
             </div>
-
+            <?php
+if(isset($error) && !empty($error)){
+    ?>
+	<div class="form__error hidden">
+    <span class="error"><?= $error; ?></span>
+	</div>
+    <?php
+}
+?>
             <div class="form__submit">
                 <input type="submit" value="Sign in" class="submit">
             </div>

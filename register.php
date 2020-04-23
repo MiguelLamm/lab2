@@ -4,8 +4,13 @@
 
 
 if(!empty($_POST)){
-    
-    $user = new User();
+    if(!empty($_POST['email'])){
+		if(!empty($_POST['password'])){
+			if(!empty($_POST['password_confirmation'])){
+				if(!empty($_POST['naam'])){
+					if(!empty($_POST['voornaam'])){
+
+						$user = new User();
     $user->setEmail($_POST['email']);
     $user->setPassword($_POST['password']);
     $user->setPasswordConfirmation($_POST['password_confirmation']);
@@ -21,8 +26,23 @@ if(!empty($_POST)){
 
 	}
     else{
-
+		$error = "Er ging iets mis!";
 	}
+
+					}
+				} else{
+					$error = "Er ging iets mis!";
+				}
+			} else{
+				$error = "Er ging iets mis!";
+			}
+		} else{
+			$error = "Er ging iets mis!";
+		}
+	} else{
+		$error = "Er ging iets mis!";
+	}
+    
     
 }
 ?>
@@ -76,9 +96,17 @@ if(!empty($_POST)){
 				<input type="submit" value="Sign me up!" class="submit">
 			</div>
 
-			<div class="form__error hidden">
-				<p>Er liep iets fout!</p>
-			</div>
+
+			<?php
+if(isset($error) && !empty($error)){
+    ?>
+	<div class="form__error hidden">
+    <span class="error"><?= $error; ?></span>
+	</div>
+    <?php
+}
+?>
+		
 
 		</div>
 	</form>
