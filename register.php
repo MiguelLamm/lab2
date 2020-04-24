@@ -22,7 +22,8 @@ if(!empty($_POST)){
     if ($result = true){
 		session_start();
             
-            $_SESSION['naam']= $result['naam'];
+			$_SESSION['naam']= $result['naam'];
+			$_SESSION['school']= $result['school'];
 			
 			if($result === true){
 		echo '<script>window.location = "index.php"</script>';
