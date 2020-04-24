@@ -1,29 +1,29 @@
 <?php
-    require_once("bootstrap.php");
+    require_once("classes/order.class.php");
     session_start();
 
    if (!empty($_POST)) {
-    
-        //$imagePost = $_FILES['fileToUpload'];
-		$date = htmlspecialchars($_POST['date']);
 		
         if (empty($date)) {
             $feedback = 'Vul de datum van volgende week in';
         } else {
             $post = new Order();
-            
-            $date = $_POST['date'];
-            $school = $_POST['school'];
-            $order = $_POST['radio'];
-            
-                    }
-                        $order->insertIntoDB($order, $_SESSION['school'], $date);
-                        
-                        if($result === true){
-                            echo '<script>window.location = "index.php"</script>';
-                        }
-                    }
-                
+            $date = date('Y-m-d', strtotime($_POST['date']));
+            $post->setDate($date);
+            $post->setSchool($_POST['school']);
+            $post->setOrder($_POST['radio']);
+            $result = $post->insertIntoDB();
+            if ($result === true){
+                      
+                         echo '<script>window.location = "index.php"</script>';
+
+            }
+            else{
+                echo  "Er ging iets mis!";
+            }
+        }
+    } 
+    echo $result;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,29 +47,35 @@
             <label>Kies maaltijd</label><br>
             <label>
   <input type="radio" name="radio" value="hamburger">
-  <img src="http://placehold.it/40x60/0bf/fff&text=A">
+  <img src="https://photos.bigoven.com/recipe/hero/great-hamburgers-32d8f2.jpg?h=300&w=300" width= 300px>
 </label>
 
 <label>
   <input type="radio" name="radio" value="veggieburger">
-  <img src="http://placehold.it/40x60/b0f/fff&text=E">
+  <img src="https://i.pinimg.com/474x/88/2c/ca/882cca2b324d386f716d99d37c37a9af.jpg" width= 300px>
 </label>
 
 <label>
   <input type="radio" name="radio" value="wrap">
-  <img src="http://placehold.it/40x60/b0f/fff&text=B">
+  <img src="https://img.static-rmg.be/a/food/image/q75/w640/h400/796/wraps-met-groenten.jpg" width= 300px>
 </label>
 <label>
   <input type="radio" name="radio" value="smos kaas en hesp">
-  <img src="http://placehold.it/40x60/b0f/fff&text=C">
+  <img src="https://dehoek.be/website/dehoek_be/assets/images/productsadvimages/stokbrood.jpg" width= 300px>
 </label>
 <label>
   <input type="radio" name="radio" value="smos Americain">
-  <img src="http://placehold.it/40x60/b0f/fff&text=D">
+  <img src="https://www.pulmenti.be/wp-content/uploads/2019/06/Pulmenti-9-1024x565.jpg" width= 300px>
 </label>
+<div class="form__field">
+				<label for="school">School</label>
+				<select name="school">
+				<option value="bimsemM">Bimsem Mechelen</option>
+				<option value="urselinnenM">Urselinnen Mechelen</option>
+				<option value="lyceumM">Lyceum Mechelen</option>
+				</select>
+			</div>
 
-
-            <input type="hidden" name="naam" id="naam" value="<?php echo $_SESSION['school'];?>" />
             <input type="hidden" name="naam" id="naam" value="<?php echo $_SESSION['userid'];?>" />
             <button class="btn" type="submit" name="upload">Verzend</button>
         </form>
