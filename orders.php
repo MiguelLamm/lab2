@@ -12,8 +12,9 @@
             $post->setDate($date);
             $post->setSchool($_POST['school']);
             $post->setOrder($_POST['radio']);
-            $result = $post->insertIntoDB();
-            if ($result === true){
+            $status = $post->insertIntoDB();
+            echo $status;
+            if ($status === true){
                       
                          echo '<script>window.location = "index.php"</script>';
 
@@ -23,7 +24,6 @@
             }
         }
     } 
-    echo $result;
 ?>
 <!DOCTYPE html>
 <html lang="en">

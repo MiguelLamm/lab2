@@ -32,12 +32,13 @@
         try {
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
             $statement = $conn->prepare("INSERT into orders (order,school) VALUES(:order, :school)");
-            $statement->bindParam(":order",$this->order);
-            $statement->bindParam(":school",$this->school);
+            $statement->bindParam(":order","testorder");
+            $statement->bindParam(":school","testschool");
             //$statement->bindParam(":deliverydate",$this->date);
             $result = $statement->execute();
-            return $result;
-               
+            
+            $status = $conn->getAttribute(PDO::ATTR_CONNECTION_STATUS);
+            return $status;
         } catch (Throwable $t){
             //return "yikes";
             //var_dump($t);
