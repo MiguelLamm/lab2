@@ -9,26 +9,29 @@ if(!empty($_POST)){
 			if(!empty($_POST['password_confirmation'])){
 				if(!empty($_POST['naam'])){
 					if(!empty($_POST['voornaam'])){
+						if(!empty($_POST['school'])){
 
 						$user = new User();
     $user->setEmail($_POST['email']);
     $user->setPassword($_POST['password']);
     $user->setPasswordConfirmation($_POST['password_confirmation']);
     $user->setNaam($_POST['naam']);
-    $user->setVoornaam($_POST['voornaam']);
+	$user->setVoornaam($_POST['voornaam']);
+	$user->setSchool($_POST['school']);
     $result = $user->register();
     if ($result = true){
 		session_start();
             
             $_SESSION['naam']= $result['naam'];
-            
+			
+			if($result === true){
 		echo '<script>window.location = "index.php"</script>';
-
+			}
 	}
     else{
 		$error = "Er ging iets mis!";
 	}
-
+						}
 					}
 				} else{
 					$error = "Er ging iets mis!";
@@ -42,8 +45,9 @@ if(!empty($_POST)){
 	} else{
 		$error = "Er ging iets mis!";
 	}
-    
-    
+	
+	
+    echo $_POST['school'];
 }
 ?>
 <!DOCTYPE html>
@@ -82,6 +86,16 @@ if(!empty($_POST)){
 				<label for="voornaam">Voornaam</label>
 				<input type="text" class="input" id="voornaam" name="voornaam">
 			</div>
+
+			<div class="form__field">
+				<label for="school">School</label>
+				<select name="school">
+				<option value="bimsemM">Bimsem Mechelen</option>
+				<option value="urselinnenM">Urselinnen Mechelen</option>
+				<option value="lyceumM">Lyceum Mechelen</option>
+				</select>
+			</div>
+			
 			<div class="form__field">
 				<label for="password">Password</label>
 				<input type="password" class="input" id="wachtwoord" name="password">
@@ -91,6 +105,8 @@ if(!empty($_POST)){
 				<label for="password_confirmation">Bevestig password</label>
 				<input type="password" class="input" id="wachtwoord_confirmatie" name="password_confirmation">
 			</div>
+
+			
 
 			<div class="form__submit">
 				<input type="submit" value="Sign me up!" class="submit">

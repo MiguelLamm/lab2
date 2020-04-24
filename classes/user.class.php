@@ -6,6 +6,7 @@
         private $passwordConfirmation;
         private $naam;
         private $voornaam;
+        private $school;
 
         public function getNaam(){
             return $this->naam;
@@ -22,6 +23,15 @@
         public function setVoornaam($voornaam){
             $this->voornaam = $voornaam;
         }
+
+        public function getSchool(){
+            return $this->school;
+        }
+    
+        public function setSchool($school){
+            $this->school = $school;
+        }
+
         /**
          * Get the value of email
          */
@@ -93,11 +103,12 @@
             try {
                 //$conn = Db::getInstance();
                 $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-                $statement = $conn->prepare("INSERT into user (email,pass, naam, voornaam) VALUES(:email, :password, :naam, :voornaam)");
+                $statement = $conn->prepare("INSERT into user (email,pass, naam, voornaam,school) VALUES(:email, :password, :naam, :voornaam, :school)");
                 $statement->bindParam(":email",$this->email);
                 $statement->bindParam(":naam",$this->naam);
                 $statement->bindParam(":voornaam",$this->voornaam);
                 $statement->bindParam(":password",$password);
+                $statement->bindParam(":school",$this->school);
                 $result = $statement->execute();
                 return $result;
                
