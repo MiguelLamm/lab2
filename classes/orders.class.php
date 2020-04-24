@@ -1,9 +1,9 @@
 <?php
  Class Order{
 
-    private $lat;
-    private $long;
-    private $loc;
+    private $order;
+    private $date;
+    private $school;
 
     public function show(){
         $conn = Db::getInstance();
@@ -70,36 +70,24 @@
         return $target_file;
     }
 
-    public function insertIntoDB($filePath, $des, $userId, $lat, $long, $loc,$gemeenteH,$date, $time,$addr)
-    {
-        try {
-            date_default_timezone_set('Europe/Brussels');
-            $date = date('Y-m-d', strtotime($date));
-            $time = date('H:i:s', strtotime($time));
-            $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO aanvraag (userid, image, description, latitude, longitude, city, date, time, active,gemeenteHelp,address) VALUES ('$userId', :path, :des, '$lat', '$long', :loc,'$date','$time', 0, :gemeente, :addr)");
-            $statement->bindParam(':path', $filePath);
-            $statement->bindParam(':des', $des);
-            $statement->bindParam(':gemeente', $gemeenteH);
-            $statement->bindParam(':loc', $loc);
-            $statement->bindParam(':addr', $addr);
-            $statement->execute();
-
-        } catch (Throwable $t) {
-            return false;
-        }
-    }
-    public function updateDBpost($filePath, $postid)
+    public function insertIntoDB($order, $schoolId, $userId, $date)
     {
         try {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("UPDATE aanvraag SET image2 = :path WHERE postid= $postid");
-            $statement->bindParam(':path', $filePath);
+            $statement = $conn->prepare("INSERT INTO orders (order, school, deliverydate) VALUES (:order, :school, :deliverydate)");
+            
+            $statement->bindParam(':order', $order);
+            $statement->bindParam(':school', $loc);
+            $statement->bindParam(':deliverydate', $eliverydate);
             $statement->execute();
-
-        } catch (Throwable $t) {
+            return $result;
+               
+        } catch (Throwable $t){
+            //return "yikes";
+            //var_dump($t);
             return false;
         }
     }
+   
  }//
 ?>

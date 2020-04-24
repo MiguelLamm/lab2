@@ -1,52 +1,29 @@
 <?php
-    require_once('bootstrap.php');
+    require_once("bootstrap.php");
     session_start();
 
    if (!empty($_POST)) {
+    
         //$imagePost = $_FILES['fileToUpload'];
-		$description = htmlspecialchars($_POST['description']);
+		$date = htmlspecialchars($_POST['date']);
 		
-        if (empty($description)) {
-            $feedback = 'Please add a description.';
+        if (empty($date)) {
+            $feedback = 'Vul de datum van volgende week in';
         } else {
             $post = new Order();
             
             $date = $_POST['date'];
-            $time = $_POST['time'];
-            $loc = $_POST['location'];
-            $addr = $_POST['addr'];
+            $school = $_POST['school'];
+            $order = $_POST['radio'];
+            
                     }
-						if(!isset($_SESSION['lat'])){
-							$lat = "0";
-						}else{
-							$lat = $_SESSION['lat'];
-						}
-
-						if(!isset($_SESSION['long'])){
-							$long = "0";
-						}else{
-							$long = $_SESSION['long'];
-							
-						}
-
+                        $order->insertIntoDB($order, $_SESSION['school'], $date);
                         
-						echo $city;
-						echo $lat;
-                        echo $long;
-                        
-                        if(!empty($_POST['gemeenteH'])){
-                            $gemeenteH = $_POST['gemeenteH'];
+                        if($result === true){
+                            echo '<script>window.location = "index.php"</script>';
                         }
-                        echo $gemeenteH;
-						$post->insertIntoDB($post->uploadImage(), $description, $_SESSION['userid'], $lat, $long, $loc,$gemeenteH,$date, $time,$addr);
-                        $feedback = 'File has been uploaded.';
-                        echo '<script>window.location = "profile.php"</script>';
                     }
                 
-            
-        
-    
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,30 +40,36 @@
 <body>
 
     <div class="form">
-        <form class="formulier form_order" action="aanvraag.php" method="post" enctype="multipart/form-data">
+        <form class="formulier form_order" action="orders.php" method="post" enctype="multipart/form-data">
             <h2>Bestelling</h2>
             <label>Bestellen tegen:</label><br>
             <input class="form_date" type="date" name="date" placeholder="'date'"><br>
             <label>Kies maaltijd</label><br>
             <label>
-  <input type="radio" name="test" value="small">
+  <input type="radio" name="radio" value="hamburger">
   <img src="http://placehold.it/40x60/0bf/fff&text=A">
 </label>
 
 <label>
-  <input type="radio" name="test" value="big">
+  <input type="radio" name="radio" value="veggieburger">
+  <img src="http://placehold.it/40x60/b0f/fff&text=E">
+</label>
+
+<label>
+  <input type="radio" name="radio" value="wrap">
   <img src="http://placehold.it/40x60/b0f/fff&text=B">
 </label>
 <label>
-  <input type="radio" name="test" value="big">
+  <input type="radio" name="radio" value="smos kaas en hesp">
   <img src="http://placehold.it/40x60/b0f/fff&text=C">
 </label>
 <label>
-  <input type="radio" name="test" value="big">
+  <input type="radio" name="radio" value="smos Americain">
   <img src="http://placehold.it/40x60/b0f/fff&text=D">
 </label>
 
-           
+
+            <input type="hidden" name="naam" id="naam" value="<?php echo $_SESSION['school'];?>" />
             <input type="hidden" name="naam" id="naam" value="<?php echo $_SESSION['userid'];?>" />
             <button class="btn" type="submit" name="upload">Verzend</button>
         </form>
