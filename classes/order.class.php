@@ -42,6 +42,16 @@
             return false;
         }
     }
+
+    
+    public function getOrders(){
+        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+        $statement = $conn->prepare("SELECT COUNT(id), `order`,`school`,`deliverydate` from orders group by `order`");
+        $statement->execute();
+        $result2 = $statement -> fetchAll();
+        return $result2;
+        
+    }
    
  }//
 ?>
