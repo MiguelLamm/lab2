@@ -28,20 +28,17 @@
 		$this->school = $school;
     }
     
-    public function insertIntoDB(){
+    public function order(){
         try {
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-            $statement = $conn->prepare("INSERT into orders (order,school) VALUES(:order, :school)");
-            $statement->bindParam(":order","testorder");
-            $statement->bindParam(":school","testschool");
-            //$statement->bindParam(":deliverydate",$this->date);
+            $statement = $conn->prepare("INSERT into orders (order,school,deliverydate) VALUES(:order, :school, :deliverydate)");
+            $statement->bindParam(":order" , $this->order);
+            $statement->bindParam(":school" , $this->school);
+            $statement->bindParam(":deliverydate",$this->date);
             $result = $statement->execute();
-            
-            $status = $conn->getAttribute(PDO::ATTR_CONNECTION_STATUS);
-            return $status;
+            return $result;
         } catch (Throwable $t){
-            //return "yikes";
-            //var_dump($t);
+            
             return false;
         }
     }

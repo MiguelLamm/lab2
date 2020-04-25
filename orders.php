@@ -3,26 +3,30 @@
     session_start();
 
    if (!empty($_POST)) {
-		
-        if (empty($date)) {
-            $feedback = 'Vul de datum van volgende week in';
-        } else {
-            $post = new Order();
-            $date = date('Y-m-d', strtotime($_POST['date']));
-            $post->setDate($date);
-            $post->setSchool($_POST['school']);
-            $post->setOrder($_POST['radio']);
-            $status = $post->insertIntoDB();
-            echo $status;
-            if ($status === true){
-                      
-                         echo '<script>window.location = "index.php"</script>';
+    if(!empty($_POST['date'])){
+        if(!empty($_POST['radio'])){
+            if(!empty($_POST['school'])){
+                $post = new Order();
+                $date = date('Y-m-d', strtotime($_POST['date']));
+                $post->setDate($date);
+                $post->setSchool($_POST['school']);
+                $post->setOrder($_POST['radio']);
+                $status = $post->order();
+                var_dump($status);
+                if ($status === true){
+                             echo '<script>window.location = "index.php"</script>';
+                }
 
+            } else{
+                echo  "Geen school is aangeduid!";
             }
-            else{
-                echo  "Er ging iets mis!";
-            }
+        } else{
+            echo  "Geen item geselecteerd!";
         }
+    } else{
+        echo  "Leverdatum niet ingegeven";
+    }
+
     } 
 ?>
 <!DOCTYPE html>
