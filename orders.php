@@ -5,13 +5,12 @@
 
         $_SESSION['userid'];
         $me= $_SESSION['userid'];
-        var_dump($me);
 
         $credits = new User();
         $credits->setCredit($me);
         $creditstatus = $credits->getCrdt();
         if ($creditstatus == true){
-            echo $creditstatus['credit'];
+        
         }
         else if($creditstatus == false){
             echo 'db miss';
@@ -29,7 +28,11 @@
                 $status = $post->order();
                 var_dump($status);
                 if ($status === true){
-                             echo '<script>window.location = "index.php"</script>';
+                             //echo '<script>window.location = "index.php"</script>';
+                             echo 'hellow';
+                }
+                else if($status== false){
+                    echo 'no';
                 }
 
             } else{
@@ -69,7 +72,6 @@
             <label>Bestellen tegen:</label><br>
             <input class="form_date" type="date" name="date" placeholder="'date'"><br>
             <label>Kies maaltijd</label><br>
-            <label>Hamburger, €2</label><br>
             <label>
   <input type="radio" name="radio" value="hamburger">
   <img src="https://photos.bigoven.com/recipe/hero/great-hamburgers-32d8f2.jpg?h=300&w=300" width= 300px>

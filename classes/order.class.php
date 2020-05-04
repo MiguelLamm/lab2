@@ -29,18 +29,25 @@
     }
     
     public function order(){
-        try {
+        /*
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-            $statement = $conn->prepare("INSERT into orders (order,school,deliverydate) VALUES(:order, :school, :deliverydate)");
+            $statement = $conn->prepare("insert into orders (order,school,deliverydate) VALUES(:order , :school , :deliverydate)");
             $statement->bindParam(":order" , $this->order);
             $statement->bindParam(":school" , $this->school);
             $statement->bindParam(":deliverydate",$this->date);
             $result = $statement->execute();
             return $result;
-        } catch (Throwable $t){
-            
-            return false;
-        }
+        */
+        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+        $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`) VALUES(:order , :school , :deliverydate)");
+        
+        $statement->bindValue(":order" , $this->order);
+        $statement->bindValue(":school" , $this->school);
+        $statement->bindValue(":deliverydate",$this->date);
+
+        $result = $statement->execute();
+        
+        return $result;
     }
 
     
