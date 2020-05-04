@@ -6,7 +6,7 @@
     $order = new Order();
     $result = $order->getOrders();
   
-    var_dump($result);
+    //var_dump($result);
     //var_dump($result2);
 
     ?>
