@@ -40,7 +40,7 @@ if(isset($_SESSION['naam'])){
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>login</title>
+  <title>Foodcart - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/screen.css">
