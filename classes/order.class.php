@@ -29,15 +29,7 @@
     }
     
     public function order(){
-        /*
-            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-            $statement = $conn->prepare("insert into orders (order,school,deliverydate) VALUES(:order , :school , :deliverydate)");
-            $statement->bindParam(":order" , $this->order);
-            $statement->bindParam(":school" , $this->school);
-            $statement->bindParam(":deliverydate",$this->date);
-            $result = $statement->execute();
-            return $result;
-        */
+       
         $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
         $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`) VALUES(:order , :school , :deliverydate)");
         
