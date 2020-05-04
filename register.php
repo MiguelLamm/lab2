@@ -21,7 +21,7 @@ if(!empty($_POST)){
     $result = $user->register();
     if ($result = true){
 		session_start();
-            
+		$_SESSION['userid'] = $result['id'];
 			$_SESSION['naam']= $result['naam'];
 			$_SESSION['school']= $result['school'];
 			

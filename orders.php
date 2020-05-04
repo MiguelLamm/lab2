@@ -1,6 +1,21 @@
 <?php
-    require_once("classes/order.class.php");
+  include('bootstrap.php');
     session_start();
+
+
+        $_SESSION['userid'];
+        $me= $_SESSION['userid'];
+        var_dump($me);
+
+        $credits = new User();
+        $credits->setCredit($me);
+        $creditstatus = $credits->getCrdt();
+        if ($creditstatus == true){
+            echo $creditstatus['credit'];
+        }
+        else if($creditstatus == false){
+            echo 'db miss';
+        }
 
    if (!empty($_POST)) {
     if(!empty($_POST['date'])){
@@ -42,35 +57,40 @@
 </head>
 
 <body>
-
+<div class="credit">
+<label class="labelCR">jouw crediet:</label>
+<?php
+    echo "€".$creditstatus['credit'];
+?>
+</div>
     <div class="form">
         <form class="formulier form_order" action="orders.php" method="post" enctype="multipart/form-data">
             <h2>Bestelling</h2>
             <label>Bestellen tegen:</label><br>
             <input class="form_date" type="date" name="date" placeholder="'date'"><br>
             <label>Kies maaltijd</label><br>
+            <label>Hamburger, €2</label><br>
             <label>
   <input type="radio" name="radio" value="hamburger">
   <img src="https://photos.bigoven.com/recipe/hero/great-hamburgers-32d8f2.jpg?h=300&w=300" width= 300px>
 </label>
-
+<label>Hamburger, €1.50</label><br>
 <label>
   <input type="radio" name="radio" value="veggieburger">
   <img src="https://i.pinimg.com/474x/88/2c/ca/882cca2b324d386f716d99d37c37a9af.jpg" width= 300px>
 </label>
-
+<label>Veggieburger, €1.20</label><br>
 <label>
   <input type="radio" name="radio" value="wrap">
   <img src="https://img.static-rmg.be/a/food/image/q75/w640/h400/796/wraps-met-groenten.jpg" width= 300px>
 </label>
+<label>Wraps, €1.20</label><br>
 <label>
   <input type="radio" name="radio" value="smos kaas en hesp">
   <img src="https://dehoek.be/website/dehoek_be/assets/images/productsadvimages/stokbrood.jpg" width= 300px>
 </label>
-<label>
-  <input type="radio" name="radio" value="smos Americain">
-  <img src="https://www.pulmenti.be/wp-content/uploads/2019/06/Pulmenti-9-1024x565.jpg" width= 300px>
-</label>
+<label>Smos kaas en ham, €1.50</label><br>
+
 <div class="form__field">
 				<label for="school">School</label>
 				<select name="school">

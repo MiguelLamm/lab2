@@ -7,6 +7,7 @@
         private $naam;
         private $voornaam;
         private $school;
+        private $credit;
 
         public function getNaam(){
             return $this->naam;
@@ -91,6 +92,14 @@
  
                 return $this;
         }
+
+        public function getCredit(){
+            return $this->credit;
+        }
+    
+        public function setCredit($credit){
+            $this->credit = $credit;
+        }
         
         public function register(){
                 $options = [
@@ -123,7 +132,7 @@
         try{
             //$conn = Db::getInstance();
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-            $statement = $conn->prepare("select * from users where email = :email");
+            $statement = $conn->prepare("select * from user where email = :email");
             
             //parameter binden
             $statement->bindParam(":email",$this->email);
@@ -148,6 +157,22 @@
                 return false;
         
             }
+        }
+        catch (Throwable $t){
+            
+        }
+    }
+
+    public function getCrdt(){
+        try{
+            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $statement = $conn->prepare("select credit from user where id = :userid");
+            
+            //parameter binden
+            $statement->bindParam(":userid",$this->credit);
+            $statement->execute();
+            $crstatus = $statement -> fetch();
+            return $crstatus;
         }
         catch (Throwable $t){
             
