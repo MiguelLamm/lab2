@@ -4,6 +4,8 @@
     private $order;
     private $date;
     private $school;
+    private $bD;
+    private $eD;
 
 	public function getOrder(){
 		return $this->order;
@@ -28,6 +30,22 @@
 		$this->school = $school;
     }
     
+    public function getBD(){
+		return $this->bD;
+	}
+
+	public function setBD($bD){
+		$this->bD = $bD;
+	}
+
+	public function getED(){
+		return $this->eD;
+	}
+
+	public function setED($eD){
+		$this->eD = $eD;
+	}
+
     public function order(){
        
         $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
@@ -45,7 +63,9 @@
     
     public function getOrders(){
         $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-        $statement = $conn->prepare("SELECT COUNT(id), `order`,`school`,`deliverydate` from orders group by `order`");
+        $statement = $conn->prepare("SELECT COUNT(id), `order`,`school`,`deliverydate` from orders WHERE deliverydate BETWEEN :bd AND :ed group by `order`");
+        $statement->bindValue(":bd" , $this->bD);
+        $statement->bindValue(":ed" , $this->eD);
         $statement->execute();
         $result2 = $statement -> fetchAll();
         return $result2;
