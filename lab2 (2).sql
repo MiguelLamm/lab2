@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 apr 2020 om 14:49
+-- Gegenereerd op: 07 mei 2020 om 14:10
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -32,7 +32,7 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `order` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `school` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deliverydate` date DEFAULT NULL
+  `deliverydate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -40,7 +40,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order`, `school`, `deliverydate`) VALUES
-(1, 'hamburger', 'bimsemM', '2020-04-30');
+(1, 'hamburger', 'bimsemM', '2020-05-03'),
+(2, 'hamburger', 'urselinnenM', '2020-05-03'),
+(3, 'wrap', 'urselinnenM', '2020-05-05'),
+(4, 'hamburger', 'bimsemM', '2020-05-11');
 
 -- --------------------------------------------------------
 
@@ -54,18 +57,20 @@ CREATE TABLE `user` (
   `voornaam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `school` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `school` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `credit` int(9) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `naam`, `voornaam`, `email`, `pass`, `school`) VALUES
-(2, 'Miguel', 'Lammens', 'mg.lm@gmail.com', '$2y$14$ui0ErduqcY7L4oO.sBLMR.uNeiz4I7bogRPUks3FaxTQrqr4qPtfW', ''),
-(6, 'test', 'test', 'test', '$2y$14$YwQM7XJfI4jSgV9SQeg8uuwXG8M8mFMXuZo8JfWmbnJJMER4drEUO', ''),
-(7, 'test1', 'test1', 'test1', '$2y$14$C//RIgEDZ7yNJwV//jzNnOUtC0nhd2VfIfn.v6L7ozSyd0LSrSXqu', ''),
-(8, 'test3', 'test3', 'test3', '$2y$14$yAWwyZY84BySy47mjQeUUOvbzPrmvGG5o9CLqCNvOK4fGOf4VwIIq', 'lyceumM');
+INSERT INTO `user` (`id`, `naam`, `voornaam`, `email`, `pass`, `school`, `credit`) VALUES
+(2, 'Miguel', 'Lammens', 'mg.lm@gmail.com', '$2y$14$ui0ErduqcY7L4oO.sBLMR.uNeiz4I7bogRPUks3FaxTQrqr4qPtfW', '', 15),
+(6, 'test', 'test', 'test', '$2y$14$YwQM7XJfI4jSgV9SQeg8uuwXG8M8mFMXuZo8JfWmbnJJMER4drEUO', '', 20),
+(7, 'test1', 'test1', 'test1', '$2y$14$C//RIgEDZ7yNJwV//jzNnOUtC0nhd2VfIfn.v6L7ozSyd0LSrSXqu', '', 20),
+(8, 'test3', 'test3', 'test3', '$2y$14$yAWwyZY84BySy47mjQeUUOvbzPrmvGG5o9CLqCNvOK4fGOf4VwIIq', 'lyceumM', 10),
+(9, 'test5', 'test5', 'test5', '$2y$14$yzSktFs4XxJ6N5UFvp/2ju5ZoB0KRjauiY/K30NYXwmvjAiJtBQc.', 'bimsemM', 14);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -91,13 +96,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
