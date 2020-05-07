@@ -2,7 +2,10 @@
     require_once('bootstrap.php');
 
     session_start();
-
+    $c = $_SESSION['userid'];
+    if(empty($c)){
+      header("location: login.php");
+    }
     $order = new Order();
     $result = $order->getOrders();
   

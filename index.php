@@ -2,8 +2,10 @@
     require_once('bootstrap.php');
 
     session_start();
-  
-    
+    $c = $_SESSION['userid'];
+    if(empty($c)){
+      header("location: login.php");
+    }
     /*if($_SESSION['adm'] == 1){
       
     }else{
