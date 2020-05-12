@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 07 mei 2020 om 14:10
+-- Gegenereerd op: 12 mei 2020 om 13:31
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -43,7 +43,9 @@ INSERT INTO `orders` (`id`, `order`, `school`, `deliverydate`) VALUES
 (1, 'hamburger', 'bimsemM', '2020-05-03'),
 (2, 'hamburger', 'urselinnenM', '2020-05-03'),
 (3, 'wrap', 'urselinnenM', '2020-05-05'),
-(4, 'hamburger', 'bimsemM', '2020-05-11');
+(4, 'hamburger', 'bimsemM', '2020-05-11'),
+(5, 'wrap', 'urselinnenM', '2020-05-14'),
+(6, 'smos kaas en hesp', 'lyceumM', '2020-05-14');
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,7 @@ CREATE TABLE `user` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `school` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `credit` int(9) NOT NULL DEFAULT '0'
+  `credit` float NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -96,7 +98,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT voor een tabel `user`

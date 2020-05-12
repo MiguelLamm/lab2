@@ -8,6 +8,7 @@
         private $voornaam;
         private $school;
         private $credit;
+        private $id;
 
         public function getNaam(){
             return $this->naam;
@@ -100,6 +101,14 @@
         public function setCredit($credit){
             $this->credit = $credit;
         }
+
+        public function getId(){
+            return $this->id;
+        }
+    
+        public function setId($id){
+            $this->id = $id;
+        }
         
         public function register(){
                 $options = [
@@ -173,6 +182,22 @@
             $statement->execute();
             $crstatus = $statement -> fetch();
             return $crstatus;
+        }
+        catch (Throwable $t){
+            
+        }
+    }
+    public function payment(){
+        try{
+            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $statement = $conn->prepare("update user set credit = :cr where id = :userid");
+            
+            //parameter binden
+            $statement->bindParam(":cr",$this->credit);
+            $statement->bindParam(":userid",$this->id);
+            $statement->execute();
+            $crstatus2 = $statement -> fetch();
+            return $crstatus2;
         }
         catch (Throwable $t){
             

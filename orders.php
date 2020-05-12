@@ -5,6 +5,10 @@
 
         $_SESSION['userid'];
         $me= $_SESSION['userid'];
+    if (empty($me)){
+        header("location: login.php");
+    }
+
 
         $credits = new User();
         $credits->setCredit($me);
@@ -35,6 +39,65 @@
                     echo 'no';
                 }
 
+                $myCr = $creditstatus['credit'];
+                $i = $_POST['radio'];
+                $minCR = 0;
+                switch ($i){
+                    case "hamburger":
+                        echo "gekoze";
+                        $myCr = $myCr - 1.50;
+                        $credits2 = new User();
+                        $credits2->setId($me);
+                        $credits2->setCredit($myCr);
+                        $creditstatus2 = $credits2->payment();
+                        if ($creditstatus2 == true){
+                        echo 'succes';
+                        }
+                        else if($creditstatus == false){
+                            echo 'db miss';
+                        }
+                    break;
+                    case "veggieburger":
+                        $myCr = $myCr - 1.20;
+                        $credits2 = new User();
+                        $credits2->setId($me);
+                        $credits2->setCredit($myCr);
+                        $creditstatus2 = $credits2->payment();
+                        if ($creditstatus2 == true){
+                        echo 'succes';
+                        }
+                        else if($creditstatus == false){
+                            echo 'db miss';
+                        }
+                    break;
+                    case "wrap":
+                        $myCr = $myCr - 1.20;
+                        $credits2 = new User();
+                        $credits2->setId($me);
+                        $credits2->setCredit($myCr);
+                        $creditstatus2 = $credits2->payment();
+                        if ($creditstatus2 == true){
+                        echo 'succes';
+                        }
+                        else if($creditstatus == false){
+                            echo 'db miss';
+                        }
+                    break;
+                    case "smos kaas en hesp":
+                        $myCr = $myCr - 1.50;
+                        $credits2 = new User();
+                        $credits2->setId($me);
+                        $credits2->setCredit($myCr);
+                        $creditstatus2 = $credits2->payment();
+                        if ($creditstatus2 == true){
+                        echo 'succes';
+                        }
+                        else if($creditstatus == false){
+                            echo 'db miss';
+                        }
+                    break;
+                }
+
             } else{
                 echo  "Geen school is aangeduid!";
             }
@@ -63,7 +126,7 @@
 <div class="credit">
 <label class="labelCR">jouw crediet:</label>
 <?php
-    echo "€".$creditstatus['credit'];
+    echo "<p id=CR>€".$creditstatus['credit']."</p>";
 ?>
 </div>
     <div class="form">
