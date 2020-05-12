@@ -45,6 +45,7 @@
                 switch ($i){
                     case "hamburger":
                         echo "gekoze";
+                        if($myCr >= 1.50){
                         $myCr = $myCr - 1.50;
                         $credits2 = new User();
                         $credits2->setId($me);
@@ -56,8 +57,13 @@
                         else if($creditstatus == false){
                             echo 'db miss';
                         }
+                    }
+                    else {
+                        echo "je hebt niet genoeg crediet";
+                    }
                     break;
                     case "veggieburger":
+                        if($myCr >= 1.20){
                         $myCr = $myCr - 1.20;
                         $credits2 = new User();
                         $credits2->setId($me);
@@ -69,8 +75,13 @@
                         else if($creditstatus == false){
                             echo 'db miss';
                         }
+                    }
+                    else {
+                        echo "je hebt niet genoeg crediet";
+                    }
                     break;
                     case "wrap":
+                        if($myCr >= 1.20){
                         $myCr = $myCr - 1.20;
                         $credits2 = new User();
                         $credits2->setId($me);
@@ -82,8 +93,13 @@
                         else if($creditstatus == false){
                             echo 'db miss';
                         }
+                    }
+                    else {
+                        echo "je hebt niet genoeg crediet";
+                    }
                     break;
                     case "smos kaas en hesp":
+                        if($myCr >= 1.50){
                         $myCr = $myCr - 1.50;
                         $credits2 = new User();
                         $credits2->setId($me);
@@ -95,6 +111,10 @@
                         else if($creditstatus == false){
                             echo 'db miss';
                         }
+                    }
+                    else {
+                        echo "je hebt niet genoeg crediet";
+                    }
                     break;
                 }
 
