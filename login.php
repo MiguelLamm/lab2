@@ -26,6 +26,7 @@ if(isset($_SESSION['naam'])){
             session_start();
             
             $_SESSION['userid'] = $user['id'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['naam']= $user['naam'];
             $_SESSION['adm']= $user['admod'];
             

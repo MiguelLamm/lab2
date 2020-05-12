@@ -102,7 +102,7 @@
 
             try {
                 //$conn = Db::getInstance();
-                $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+                $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
                 $statement = $conn->prepare("INSERT into user (email,pass, naam, voornaam,school) VALUES(:email, :password, :naam, :voornaam, :school)");
                 $statement->bindParam(":email",$this->email);
                 $statement->bindParam(":naam",$this->naam);
@@ -122,7 +122,7 @@
         
         try{
             //$conn = Db::getInstance();
-            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
             $statement = $conn->prepare("select * from users where email = :email");
             
             //parameter binden
@@ -130,7 +130,7 @@
 
             $result = $statement->execute();
 
-            var_dump($user['id']);
+            //var_dump($user['id']);
             
             //array overzetten naar variable
             $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -152,5 +152,33 @@
         catch (Throwable $t){
             
         }
+    }
+
+    public function changeSettings($newEmail, $voornaam, $achternaam, $school, $newpassword, $email){ 
+        
+                //$conn = Db::getInstance();
+                $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
+                $statement = $conn->prepare("update user set email=:newEmail, voornaam=:voornaam, achternaam=:achternaam, school=:school, pass=:newpass where email = :email");
+                $statement->bindValue(":newEmail", $newEmail);
+                $statement->bindValue(":voornaam", $voornaam);
+                $statement->bindValue(":achternaam", $achternaam);
+                $statement->bindValue(":school", $school);
+
+                $options = [
+                    'cost' => 14 //2^12 
+                ];
+    
+                $newpassword = password_hash($this->password,PASSWORD_DEFAULT, $options);
+
+                $statement->bindValue(":newpass", $newpassword);
+                $statement->bindValue(":email", $email);
+
+                $result = $statement->execute();
+        
+                if($result == true){
+                    return true;
+                }else{
+                    echo "Er is iets foutgelopen bij het updaten.";
+                }
     }
 }
