@@ -48,7 +48,7 @@
 
     public function orderNow(){
        
-        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
         $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`) VALUES(:order , :school , :deliverydate)");
         
         $statement->bindValue(":order" , $this->order);
@@ -62,7 +62,7 @@
 
     
     public function getOrders(){
-        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
         $statement = $conn->prepare("SELECT COUNT(id), `order`,`school`,`deliverydate` from orders WHERE deliverydate BETWEEN :bd AND :ed group by `order`");
         $statement->bindValue(":bd" , $this->bD);
         $statement->bindValue(":ed" , $this->eD);

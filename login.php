@@ -27,6 +27,7 @@ if(isset($_SESSION['naam'])){
             
             $_SESSION['userid'] = $user['id'];
             $_SESSION['naam']= $user['naam'];
+            $_SESSION['email']= $user['email'];
             $_SESSION['adm']= $user['admod'];
             
             echo '<script>window.location = "index.php"</script>';
