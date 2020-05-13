@@ -6,6 +6,17 @@
     include_once(__DIR__ . "/classes/db.class.php");
     include_once(__DIR__ . "/classes/user.class.php");
 
+    /*if($_SESSION['adm'] == 1){
+      
+    }else{
+      //BYE FELISHA
+      header("location: index.php");
+    }
+    */
+
+    //$posts = new Post;
+    //$posts = $posts->showReq();
+
     if(!empty($_POST)){
 
       $u = new User();
@@ -39,9 +50,6 @@
   if( $statement->rowCount() > 0){
       $user = $statement->fetch(); // array van resultaten opvragen
   };
-  
-
-    ?>
   
 
     ?>

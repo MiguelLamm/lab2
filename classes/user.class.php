@@ -148,7 +148,7 @@
 
             $result = $statement->execute();
 
-            var_dump($user['id']);
+            //var_dump($user['id']);
             
             //array overzetten naar variable
             $user = $statement->fetch(PDO::FETCH_ASSOC);
