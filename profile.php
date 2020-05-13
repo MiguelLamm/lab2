@@ -2,6 +2,10 @@
     require_once('bootstrap.php'); 
 
     session_start();
+
+    include_once(__DIR__ . "/classes/db.class.php");
+    include_once(__DIR__ . "/classes/user.class.php");
+
     if(!empty($_POST)){
 
       $u = new User();
@@ -29,12 +33,15 @@
   }
 
   //$conn = Db::getInstance();
-  $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+  $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
   $statement = $conn->prepare("select * from user where id = '" . $_SESSION['userid'] . "'");
   $statement->execute();
   if( $statement->rowCount() > 0){
       $user = $statement->fetch(); // array van resultaten opvragen
   };
+  
+
+    ?>
   
 
     ?>
@@ -76,7 +83,6 @@
 
   <form class="formulier" id="form" action="" method="post">
 		<div class="aanmelden">
-
 			<div class="form__field">
 				<label for="email">Email</label>
 				<input type="text" class="input" id="email" name="email" value="<?php echo $user['email'] ?>">
