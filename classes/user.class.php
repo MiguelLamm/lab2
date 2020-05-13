@@ -203,4 +203,32 @@
             
         }
     }
+
+    public function updateProfile(){
+        $options = [
+            'cost' => 14 //2^12 
+        ];
+
+        $password = password_hash($this->password,PASSWORD_DEFAULT, $options);
+
+
+        try {
+            //$conn = Db::getInstance();
+            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $statement = $conn->prepare("update user set email = :email, naam = :voornaam, voornaam = :naam, pass = :password, school = :school where id = :userid");
+            $statement->bindParam(":email",$this->email);
+            $statement->bindParam(":naam",$this->naam);
+            $statement->bindParam(":voornaam",$this->voornaam);
+            $statement->bindParam(":password",$password);
+            $statement->bindParam(":school",$this->school);
+            $statement->bindParam(":userid",$this->id);
+            $result = $statement->execute();
+            return $result;
+           
+        } catch (Throwable $t){
+            //return "yikes";
+            //var_dump($t);
+            return false;
+        }
+    }
 }

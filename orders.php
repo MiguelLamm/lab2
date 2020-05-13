@@ -29,7 +29,7 @@
                 $post->setDate($date);
                 $post->setSchool($_POST['school']);
                 $post->setOrder($_POST['radio']);
-                $status = $post->order();
+                $status = $post->orderNow();
                 var_dump($status);
                 if ($status === true){
                              //echo '<script>window.location = "index.php"</script>';

@@ -46,7 +46,7 @@
 		$this->eD = $eD;
 	}
 
-    public function order(){
+    public function orderNow(){
        
         $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
         $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`) VALUES(:order , :school , :deliverydate)");
