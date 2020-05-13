@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 12 mei 2020 om 13:31
+-- Gegenereerd op: 13 mei 2020 om 15:09
 -- Serverversie: 10.1.37-MariaDB
 -- PHP-versie: 7.3.0
 
@@ -69,7 +69,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `naam`, `voornaam`, `email`, `pass`, `school`, `credit`) VALUES
 (2, 'Miguel', 'Lammens', 'mg.lm@gmail.com', '$2y$14$ui0ErduqcY7L4oO.sBLMR.uNeiz4I7bogRPUks3FaxTQrqr4qPtfW', '', 15),
-(6, 'test', 'test', 'test', '$2y$14$YwQM7XJfI4jSgV9SQeg8uuwXG8M8mFMXuZo8JfWmbnJJMER4drEUO', '', 20),
+(6, 'test', 'test', 'test', '$2y$14$8MECvL/y5u2MkGkk5QwSXeTt7iga22hAkekUi1H1WqvUZYbJ9oQHi', 'urselinnenM', 20),
 (7, 'test1', 'test1', 'test1', '$2y$14$C//RIgEDZ7yNJwV//jzNnOUtC0nhd2VfIfn.v6L7ozSyd0LSrSXqu', '', 20),
 (8, 'test3', 'test3', 'test3', '$2y$14$yAWwyZY84BySy47mjQeUUOvbzPrmvGG5o9CLqCNvOK4fGOf4VwIIq', 'lyceumM', 10),
 (9, 'test5', 'test5', 'test5', '$2y$14$yzSktFs4XxJ6N5UFvp/2ju5ZoB0KRjauiY/K30NYXwmvjAiJtBQc.', 'bimsemM', 14);
