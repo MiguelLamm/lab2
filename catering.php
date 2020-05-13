@@ -1,5 +1,7 @@
 <?php
-    require_once('bootstrap.php');
+    //require_once('bootstrap.php');
+    include_once("classes/user.class.php");
+    include_once("classes/order.class.php");
 
     session_start();
     $c = $_SESSION['userid'];
@@ -10,7 +12,7 @@
     $BD = date('Y-m-d', strtotime("now"));
     $ED = date('Y-m-d', strtotime("+1 week"));
 
-    $order = new Order();
+    $order = new Orders();
     $order->setBD($BD);
     $order->setED($ED);
     $result = $order->getOrders();

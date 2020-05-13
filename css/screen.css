@@ -6,149 +6,446 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
+    font-size: 0.8em;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 200px 1fr 300px;
-    grid-template-rows: 100px 80px 245px 1fr 150px;
-    gap: 1px 1px;
-    grid-template-areas: "logo topbar account""logo container container""nav container container"". container container""logout container container";
-}
+    /* CSS Index & Andere Pagina's */
 
-.logo {
-    grid-area: logo;
-    font-size: 50px;
-}
+    .topbar{
+        width:100%;
+        background-color:white;
+        height:100px;
+        z-index:3;
+    }
 
-.topbar {
-    grid-area: topbar;
-}
+    .logo{
+        width:150px;
+        height:150px;
+        
+        position:absolute;
+        top: 25px;
+        left: 25px;
+        border:black 1px;
+        background-image: url(../images/Logo.svg);
+        background-position: center;
+        background-size: 150px;
+        z-index:3;
+    }
 
-.account {
-    grid-area: account;
-}
+    .title{
+        font-size:20px;
+        top: 40px;
+        position: absolute;
+        left: 250px;
+        z-index:4;
+        font-weight: bold;
+        width:200px;
+    }
 
-.nav {
-    grid-area: nav;
-}
+    .account{
+        z-index:4;
+        top: 40px;
+        position: absolute;
+        left: 90%;
+    }
 
-.logout {
-    grid-area: logout;
-}
+    .account img{
+        height:25px;
+    }
 
-.container {
-    grid-area: container;
-} 
+    .sidebar{
+        width:200px;
+        height:100vh;
+        z-index:2;
+        position:absolute;
+        top:0px;
+        background-color: white;
+    }
 
-h2{ 
-    font-weight: bold;
-    color: black
-  }
-  
-  .formulier {
-      width: 55%;
-      margin: 18% auto 0 auto;
-  }
-  
-  .formulier label {
-      font-size: 17px;
-      font-weight: bold;
-      margin: 10px 0;
-      width: 50%;
-      float: left;
-  }
-  
-  .aanmelden {
-      width: 55%;
-      margin: 10% auto 0 auto;
-  }
-  .aanmelden label, #vriendenlijst p {
-      font-size: 17px;
-      font-weight: bold;
-      margin: 20px 0;
-      width: 50%;
-      float: left;
-  }
-  
-  .aanmelden .input {
-      width: 100%;
-      height: 40px;
-      background-color: #E8E8E8;
-      font-size: 15px;
-      color: black;
-      border-radius: 10px;
-      border: none;
-      margin: 0;
-  }
-  
-  .input {
-      width: 100%;
-      height: 40px;
-      background-color: #E8E8E8;
-      font-size: 15px;
-      color: black;
-      border-radius: 10px;
-      border: none;
-      margin: 0;
-  }
-  
-  .input { padding-left: 10px; }
-  
-  .submit{
-      width: 160px;
-      padding: 15px 10px;
-      margin: 30px 0;
-      font-size: 15px;
-      font-weight: 700;
-      color:white;
-      text-align: center;
-      border: none;
-      border-radius: 10px;
-      background-color:#368483;
-  }
-  
-  #password_field { margin: 10px 0 0 0; }
-  
-  .formerror{
-     color:red;
-     background-color: rosybrown;
-     padding-left:10px;
-     padding-right:10px;
-     padding-top: 3px;
-     padding-bottom:3px;
-  }
-  
-  #form_title h2{ margin: 0 0 50px 0; }
-  
-  #geen_lid, #lid { 
-      padding: 50px 50px 0 0;
-      float: right; 
-  }
-  
-  #geen_lid p, #lid p { 
-      font-size: 15px;
-  }
-  
-  #geen_lid a, #lid a {
-      color: #368483;
-      text-decoration: none;
-  }
-  
-  #banner {
-      width: 40%;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      background-image: url(../images/food.jpg);
-      background-size: cover;
-      background-position: center center;
-      float: left;
-  }
-  
-  #form {
-      width: 60%;
-      margin: 0 auto;
-      float: left;
-  }
+    .nav, .logout{
+        position:relative;
+        top:200px;
+        left:50px;
+        font-weight: bold;
+        width:150px;
+        font-size: 1em;
+    }
 
+    .logout{
+        top:70%;
+    }
+
+    a{
+        color:black;
+        text-decoration: none;
+    }
+
+    a p{
+        margin: 25px 0px;
+    }
+
+    .selected{
+        color: #3B74F0;
+    }
+
+    .container{
+        z-index:1;
+        width:calc(100% - 200px);
+        height:calc(100vh - 100px );
+        position:relative;
+        left:200px;
+        background-color:#F6FAFD;
+    }
+    
+    .clearfix:after{
+        clear:both;
+        content:" ";
+        display:block;
+    }
+
+    .menus{
+        position: relative;
+        top: 50px;
+        left: 50px;
+        width: calc(100% - 100px);
+        margin: 0 auto;
+    }
+
+    .section{
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .fotoFood{
+        width: 100%;
+    }
+
+    .menu{
+        background-color:white;
+        position: relative;
+        width: 15%;
+        height:130px;
+        top:10px;
+        border-radius: 20px;
+
+        float:left;
+    }
+
+    .menu p{
+        margin: 10px;
+    }
+
+    .menu2, .menu3, .menu4, .menu5{
+        margin-left: 3%;
+    }
+
+    .orders{
+        position: relative;
+        top: 50px;
+        left: 0px;
+        width: calc(100% - 100px);
+        margin: 0 auto;
+    }
+
+    .order{
+        background-color:white;
+        position: relative;
+        width: 15%;
+        height:140px;
+        border-radius: 20px;
+        padding:10px;
+
+        float:left;
+    }
+
+    .order p{
+        margin: 10px;
+    }
+
+    .order2, .order3, .order4, .order5{
+        margin-left: 3%;
+    }
+
+    .size{
+        font-size: 32px;
+        margin:5px;
+        font-weight: bold;
+    }
+
+    .total{
+        widows: 80%;
+        height:10px;
+        margin: 10 2em;
+        margin-left: calc(2em-10px);
+        background-color: #D9E3FB;
+        border-radius: 5px;
+        margin-top: 30px;
+    }
+
+    .number{
+        background-color: #3B74F0;
+        height:10px;
+        border-radius: 5px;
+    }
+
+    .clients{
+        position: relative;
+        top: 50px;
+        left: 0px;
+        width: calc(100% - 100px);
+        margin: 0 auto;
+    }
+
+    .client{
+        background-color:white;
+        position: relative;
+        width: 15%;
+        height:100px;
+        border-radius: 20px;
+        padding:10px;
+        padding: auto;
+
+        float:left;
+    }
+
+    .client2, .client3, .client4, .client5{
+        margin-left: 3%;
+    }
+
+    .client p{
+        margin: 10px;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .zieMeer{
+        position: relative;
+        left: 80%;
+        top:30px;
+    }
+    
+    /* CSS Login & Register */
+
+    h2{ 
+        font-weight: bold;
+        color: black
+    }
+    
+    .formulier {
+        width: 55%;
+        margin: 18% auto 0 auto;
+    }
+    
+    .formulier label {
+        font-size: 17px;
+        font-weight: bold;
+        margin: 10px 0;
+        width: 50%;
+        float: left;
+    }
+    
+    .aanmelden {
+        width: 55%;
+        margin: 10% auto 0 auto;
+    }
+    .aanmelden label, #vriendenlijst p {
+        font-size: 17px;
+        font-weight: bold;
+        margin: 20px 0;
+        width: 50%;
+        float: left;
+    }
+    
+    .aanmelden .input {
+        width: 100%;
+        height: 40px;
+        background-color: #E8E8E8;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        border: none;
+        margin: 0;
+    }
+    
+    .input {
+        width: 100%;
+        height: 40px;
+        background-color: #E8E8E8;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        border: none;
+        margin: 0;
+    }
+    
+    .input { padding-left: 10px; }
+    
+    .submit{
+        width: 160px;
+        padding: 15px 10px;
+        margin: 30px 0;
+        font-size: 15px;
+        font-weight: 700;
+        color:white;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background-color:#3B74F0;
+    }
+    
+    #password_field { margin: 10px 0 0 0; }
+    
+    .formerror{
+        color:red;
+        background-color: rosybrown;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top: 3px;
+        padding-bottom:3px;
+    }
+    
+    #form_title h2{ margin: 0 0 50px 0; }
+    
+    #geen_lid, #lid { 
+        padding: 50px 50px 0 0;
+        float: right; 
+    }
+    
+    #geen_lid p, #lid p { 
+        font-size: 15px;
+    }
+    
+    #geen_lid a, #lid a {
+        color: #368483;
+        text-decoration: none;
+    }
+    
+    #banner {
+        width: 40%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-image: url(../images/food.jpg);
+        background-size: cover;
+        background-position: center center;
+        float: left;
+    }
+    
+    #form {
+        width: 60%;
+        margin: 0 auto;
+        float: left;
+    }
+
+    h2{ 
+        font-weight: bold;
+        color: black
+    }
+    
+    .formulier {
+        width: 55%;
+        margin: 18% auto 0 auto;
+    }
+    
+    .formulier label {
+        font-size: 17px;
+        font-weight: bold;
+        margin: 10px 0;
+        width: 50%;
+        float: left;
+    }
+    
+    .aanmelden {
+        width: 55%;
+        margin: 10% auto 0 auto;
+    }
+    .aanmelden label, #vriendenlijst p {
+        font-size: 17px;
+        font-weight: bold;
+        margin: 20px 0;
+        width: 50%;
+        float: left;
+    }
+    
+    .aanmelden .input {
+        width: 100%;
+        height: 40px;
+        background-color: #E8E8E8;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        border: none;
+        margin: 0;
+    }
+    
+    .input {
+        width: 100%;
+        height: 40px;
+        background-color: #E8E8E8;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        border: none;
+        margin: 0;
+    }
+    
+    .input { padding-left: 10px; }
+    
+    .submit{
+        width: 160px;
+        padding: 15px 10px;
+        margin: 30px 0;
+        font-size: 15px;
+        font-weight: 700;
+        color:white;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        background-color:#3B74F0;
+    }
+    
+    #password_field { margin: 10px 0 0 0; }
+    
+    .formerror{
+        color:red;
+        background-color: rosybrown;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top: 3px;
+        padding-bottom:3px;
+    }
+    
+    #form_title h2{ margin: 0 0 50px 0; }
+    
+    #geen_lid, #lid { 
+        padding: 50px 50px 0 0;
+        float: right; 
+    }
+    
+    #geen_lid p, #lid p { 
+        font-size: 15px;
+    }
+    
+    #geen_lid a, #lid a {
+        color: #368483;
+        text-decoration: none;
+    }
+    
+    #banner {
+        width: 40%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-image: url(../images/food.jpg);
+        background-size: cover;
+        background-position: center center;
+        float: left;
+    }
+    
+    #form {
+        width: 60%;
+        margin: 0 auto;
+        float: left;
+    }

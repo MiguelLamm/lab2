@@ -56,7 +56,7 @@ if(!empty($_POST)){
 
 <head>
 	<meta charset="UTF-8">
-	<title>register</title>
+	<title>Foodcart - Register</title>
 	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/screen.css">
@@ -90,7 +90,7 @@ if(!empty($_POST)){
 
 			<div class="form__field">
 				<label for="school">School</label>
-				<select name="school">
+				<select class="input" name="school">
 				<option value="bimsemM">Bimsem Mechelen</option>
 				<option value="urselinnenM">Urselinnen Mechelen</option>
 				<option value="lyceumM">Lyceum Mechelen</option>
