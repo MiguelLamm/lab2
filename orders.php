@@ -33,7 +33,7 @@ if(!empty($_POST['date'])){
             $status = $post->orderNow();
             var_dump($status);
             if ($status === true){
-                         //echo '<script>window.location = "index.php"</script>';
+                         echo '<script>window.location = "index.php"</script>';
                          echo 'hellow';
             }
             else if($status== false){
@@ -183,6 +183,12 @@ if(!empty($_POST['date'])){
   </div>
 
   <div class="container">
+  <div class="credit">
+            <div class="labelCR">Jouw crediet:
+            <?php
+                echo "<p id=CR>€".$creditstatus['credit']."</p>";
+            ?>
+        </div>
         <form class="form" action="orders.php" method="post" enctype="multipart/form-data">
 
             <div class="form__field">
@@ -226,12 +232,7 @@ if(!empty($_POST['date'])){
             <button class="submit" type="submit" name="upload">Verzend</button>
         </form>
 
-        <div class="credit">
-            <div class="labelCR">Jouw crediet:
-            <?php
-                echo "<p id=CR>€".$creditstatus['credit']."</p>";
-            ?>
-        </div>
+       
         
         <?php
                 if (isset($feedback)) {
