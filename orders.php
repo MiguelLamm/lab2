@@ -216,9 +216,9 @@ if(!empty($_POST['date'])){
             <div class="form__field">
 				<label for="school">School</label> <br />
 				<select class="input" name="school">
-                    <option value="bimsemM">Bimsem Mechelen</option>
-                    <option value="urselinnenM">Urselinnen Mechelen</option>
-                    <option value="lyceumM">Lyceum Mechelen</option>
+                    <option value="Bimsem Mechelen">Bimsem Mechelen</option>
+                    <option value="Urselinnen Mechelen">Urselinnen Mechelen</option>
+                    <option value="Lyceum Mechelen">Lyceum Mechelen</option>
 				</select>
 			</div>
 

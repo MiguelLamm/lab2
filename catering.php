@@ -20,12 +20,7 @@
     //var_dump($result);
     //var_dump($result2);
     
-    echo date('Y-m-d', strtotime("now")) 
-    , "\n";
-    echo strtotime("+1 day"), "\n";
-    echo date('Y-m-d', strtotime("+1 week")), "\n";
-    echo strtotime("+1 week 2 days 4 hours 2 seconds"), "\n";
-    echo strtotime("next Thursday"), "\n";
+   
 
     ?>
 <!DOCTYPE html>
