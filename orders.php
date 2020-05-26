@@ -33,7 +33,7 @@ if(!empty($_POST['date'])){
             $status = $post->orderNow();
             var_dump($status);
             if ($status === true){
-                         echo '<script>window.location = "index.php"</script>';
+                         echo '<script>window.location = "gelukt.php"</script>';
                          echo 'hellow';
             }
             else if($status== false){
@@ -171,8 +171,8 @@ if(!empty($_POST['date'])){
   <div class="sidebar">
       
       <div class="nav">
-        <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
+        <a href="index.php"> <p > <img src="images/dashboard.svg" />  Overview</p> </a>
+        <a href="orders.php"> <p class="selected"> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>

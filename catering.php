@@ -38,7 +38,7 @@
 <body>
 <div class="topbar">
     <a href="index.php"><div class="logo"> </div></a>
-    <p class="title">Foodcart - Bestellen</p>
+    <p class="title">Overzicht Bestellingen</p>
     <a href="profile.php"><div class="account"><img src="images/user.svg" /> </div> </a>
   </div>
 
