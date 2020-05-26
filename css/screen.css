@@ -449,3 +449,27 @@ body {
         margin: 0 auto;
         float: left;
     }
+
+    .cateringul{
+        width: 300px;
+        height: auto;
+        border: 1px solid black;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        float: left;
+        padding: 20px 20px 30px 20px;
+    }
+    h1 {
+        font-size: 26px;
+        padding-bottom: 10px;
+    }
+    .count{
+        position: relative;
+        left: 130px;
+    }
+    .lititle{
+       padding-top: 20px;
+        width: 100px;
+        position: relative;
+        top: 10px;
+    }
