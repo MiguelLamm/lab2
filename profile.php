@@ -6,17 +6,6 @@
     include_once(__DIR__ . "/classes/db.class.php");
     include_once(__DIR__ . "/classes/user.class.php");
 
-    /*if($_SESSION['adm'] == 1){
-      
-    }else{
-      //BYE FELISHA
-      header("location: index.php");
-    }
-    */
-
-    //$posts = new Post;
-    //$posts = $posts->showReq();
-
     if(!empty($_POST)){
 
       $u = new User();
@@ -53,6 +42,9 @@
   
 
     ?>
+  
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +70,6 @@
       <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
         <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
-        <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 

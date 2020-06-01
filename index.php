@@ -40,7 +40,6 @@
       <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
         <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
-        <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 
@@ -71,11 +70,6 @@
         </div>
 
         <div class="menu menu4">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
-        </div>
-
-        <div class="menu menu5">
           <img class="fotoFood" src="images/burger.svg" />
           <p>Hamburger</p>
         </div>
@@ -112,50 +106,7 @@
           <div class="total"> <div class="number" style="width:calc(0.27 * 100%);"></div> </div>
         </div>
 
-        <div class="order order5">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.85 * 100%);"></div> </div>
-        </div>
-
       <p><a href="order.php" class="zieMeer">Zie meer</p>
-    </div>
-
-    <div class="clients">
-      <p class="section">Beste klanten deze week</p>
-
-      <div class="clearfix">
-        <div class="client client1" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client2" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client3" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client4" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client5" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-      <p><a href="clients.php" class="zieMeer">Zie meer</p>
     </div>
 
   </div>
