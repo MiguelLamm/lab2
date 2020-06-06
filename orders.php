@@ -172,7 +172,7 @@ if(!empty($_POST['date'])){
       
       <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
+        <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 
@@ -193,21 +193,21 @@ if(!empty($_POST['date'])){
                 <label for="radio">Kies maaltijd</label> <br />
                 <label>
                     <input type="radio" name="radio" value="hamburger">
-                    <img class="label" width="200px" height="200px" src="https://photos.bigoven.com/recipe/hero/great-hamburgers-32d8f2.jpg?h=300&w=300">
+                    <img class="label" width="200px" height="200px" src="images/hamburger.svg">
                 </label>
 
                 <label>
                     <input type="radio" name="radio" value="veggieburger">
-                    <img class="label" width="200px" height="200px" src="https://i.pinimg.com/474x/88/2c/ca/882cca2b324d386f716d99d37c37a9af.jpg">
+                    <img class="label" width="200px" height="200px" src="images/veggie.svg">
                 </label>
 
                 <label>
                     <input type="radio" name="radio" value="wrap">
-                    <img class="label" width="200px" height="200px" src="https://img.static-rmg.be/a/food/image/q75/w640/h400/796/wraps-met-groenten.jpg">
+                    <img class="label" width="200px" height="200px" src="images/wraps.svg">
                 </label>
                 <label>
                     <input type="radio" name="radio" value="smos kaas en hesp">
-                    <img class="label" width="200px" height="200px" src="https://dehoek.be/website/dehoek_be/assets/images/productsadvimages/stokbrood.jpg">
+                    <img class="label" width="200px" height="200px" src="images/smos.svg">
                 </label>
             </div>
 

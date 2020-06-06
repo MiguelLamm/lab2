@@ -69,7 +69,7 @@
       
       <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
+        <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 

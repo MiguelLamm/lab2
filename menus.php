@@ -25,6 +25,13 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="theme-color" content="#272727">
+
+    <style type="text/css">
+        .menus{
+          margin-bottom:50px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -38,9 +45,9 @@
   <div class="sidebar">
       
       <div class="nav">
-        <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
+        <a href="index.php"> <img src="images/dashboard.svg" />  Overview </a>
         <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
-        <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
+        <a href="menus.php"> <p class="selected"> <img src="images/food2.svg"/>  Menus</p> </a>
       </div>
 
       <div class="logout">
@@ -74,39 +81,32 @@
           <p>Pasta</p>
         </div>
       </div>
-
-      <p><a href="menus.php" class="zieMeer">Zie meer</p>
     </div>
 
-    <div class="orders">
-      <p class="section">Orders van deze week</p>
+    <div class="menus">
+      <p class="section">Recepten van volgende week</p>
 
       <div class="clearfix">
-        <div class="order order1">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.58 * 100%);"></div> </div>
+        <div class="menu menu1">
+          <img class="fotoFood" src="images/hamburger.svg" />
+          <p>Hamburger</p>
         </div>
 
-        <div class="order order2">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.65 * 100%);"></div> </div>
+        <div class="menu menu2">
+          <img class="fotoFood" src="images/veggie.svg" />
+          <p>Veggieburger</p>
         </div>
 
-        <div class="order order3">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.35 * 100%);"></div> </div>
+        <div class="menu menu3">
+          <img class="fotoFood" src="images/wraps.svg" />
+          <p>Wraps</p>
         </div>
 
-        <div class="order order4">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.27 * 100%);"></div> </div>
+        <div class="menu menu4">
+          <img class="fotoFood" src="images/smos.svg" />
+          <p>Smos</p>
         </div>
-
-      <p><a href="order.php" class="zieMeer">Zie meer</p>
+      </div>
     </div>
 
   </div>
