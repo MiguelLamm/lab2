@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-    font-size: 0.8em;
+    font-size: 16px;
 }
 
     /* CSS Index & Andere Pagina's */
@@ -52,12 +52,48 @@ body {
     .account img{
         height:25px;
     }
-   
+
+    .sidebar{
+        width:200px;
+        height:100vh;
+        z-index:2;
+        position:absolute;
+        top:0px;
+        background-color: white;
+    }
+
+    .nav, .logout{
+        position:relative;
+        top:200px;
+        left:50px;
+        font-weight: bold;
+        width:150px;
+        font-size: 1em;
+    }
+
+    .logout{
+        top:70%;
+    }
+
+    a{
+        color:black;
+        text-decoration: none;
+    }
+
+    a p{
+        margin: 25px 0px;
+    }
+
+    .selected{
+        color: #3B74F0;
+    }
+
     .container{
         z-index:1;
         width:calc(100% - 200px);
         height:calc(100vh - 100px );
-        
+        position:relative;
+        left:200px;
         background-color:#F6FAFD;
     }
     
@@ -67,40 +103,39 @@ body {
         display:block;
     }
 
-    .menus{
+    .menus, .bestellingen{
         position: relative;
         top: 50px;
         left: 50px;
         width: calc(100% - 100px);
         margin: 0 auto;
+        margin-left: 50px;
     }
 
     .section{
         font-weight: bold;
-        font-size: 1.5em;
+        font-size: 16px;
     }
 
     .fotoFood{
         width: 100%;
+        height: 75%;
     }
 
-    .menu{
+    .menu, .bestelling{
         background-color:white;
         position: relative;
         width: 15%;
         height:130px;
         top:10px;
         border-radius: 20px;
+        margin-right: 3%;
 
         float:left;
     }
 
     .menu p{
         margin: 10px;
-    }
-
-    .menu2, .menu3, .menu4, .menu5{
-        margin-left: 3%;
     }
 
     .orders{
@@ -132,7 +167,7 @@ body {
 
     .size{
         font-size: 32px;
-        margin:5px;
+        /*margin:5px;*/
         font-weight: bold;
     }
 
@@ -303,203 +338,39 @@ body {
         float: left;
     }
 
-    h2{ 
-        font-weight: bold;
-        color: black
-    }
-    
-    .formulier {
-        width: 55%;
-        margin: 18% auto 0 auto;
-    }
-    
-    .formulier label {
-        font-size: 17px;
-        font-weight: bold;
-        margin: 10px 0;
-        width: 50%;
-        float: left;
-    }
-    
-    .aanmelden {
-        width: 55%;
-        margin: 10% auto 0 auto;
-    }
-    .aanmelden label, #vriendenlijst p {
-        font-size: 17px;
-        font-weight: bold;
-        margin: 20px 0;
-        width: 50%;
-        float: left;
-    }
-    
-    .aanmelden .input {
-        width: 100%;
-        height: 40px;
-        background-color: #E8E8E8;
-        font-size: 15px;
-        color: black;
-        border-radius: 10px;
-        border: none;
-        margin: 0;
-    }
-    
-    .input {
-        width: 100%;
-        height: 40px;
-        background-color: #E8E8E8;
-        font-size: 15px;
-        color: black;
-        border-radius: 10px;
-        border: none;
-        margin: 0;
-    }
-    
-    .input { padding-left: 10px; }
-    
-    .submit{
-        width: 160px;
-        padding: 15px 10px;
-        margin: 30px 0;
-        font-size: 15px;
-        font-weight: 700;
-        color:white;
-        text-align: center;
-        border: none;
-        border-radius: 10px;
-        background-color:#3B74F0;
-    }
-    
-    #password_field { margin: 10px 0 0 0; }
-    
-    .formerror{
-        color:red;
-        background-color: rosybrown;
-        padding-left:10px;
-        padding-right:10px;
-        padding-top: 3px;
-        padding-bottom:3px;
-    }
-    
-    #form_title h2{ margin: 0 0 50px 0; }
-    
-    #geen_lid, #lid { 
-        padding: 50px 50px 0 0;
-        float: right; 
-    }
-    
-    #geen_lid p, #lid p { 
-        font-size: 15px;
-    }
-    
-    #geen_lid a, #lid a {
-        color: #368483;
-        text-decoration: none;
-    }
-    
-    #banner {
-        width: 40%;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        background-image: url(../images/food.jpg);
-        background-size: cover;
-        background-position: center center;
-        float: left;
-    }
-    
-    #form {
-        width: 60%;
+    .bestellingen{
+        position: relative;
+        top: 50px;
+        left: 50px;
+        width: calc(100% - 100px);
         margin: 0 auto;
-        float: left;
+        padding: 5px;
     }
 
-    .cateringul{
-        width: 300px;
-        height: auto;
-        border: 1px solid black;
-       margin: 20px;
-        float: left;
-        padding: 20px 20px 30px 20px;
-        border-radius: 10px;
-    }
-    h1 {
-        font-size: 26px;
-        padding-bottom: 10px;
-    }
-    .count{
-        position: relative;
-        left: 130px;
-    }
-    .lititle{
-       padding-top: 20px;
-        width: 100px;
-        position: relative;
-        top: 10px;
+    .bestelling{
+        width: 20%;
     }
 
-
-    @media screen and (min-width: 300px){
-        .sidebar{
-           display: none;
-        }
-        .container{
-            width: 100%;
-        }
-        .logo{
-            display: none;
-        }
-        .succes{
-            font-size: 40px;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 450px;
-        }
-    }
-    @media screen and (min-width: 600px) {
-       
-        
-    .sidebar{
-        width:200px;
-        height:100vh;
-        z-index:2;
-        position:absolute;
-        top:0px;
-        background-color: white;
-        display: block;
+    .bestelling p{
+        padding: 10px;
     }
 
-    .nav, .logout{
-        position:relative;
-        top:200px;
-        left:50px;
-        font-weight: bold;
-        width:150px;
+    .bestelling {
+        margin: 5px;
+        height:150px;
+    }
+
+    .orderPage{
+        margin-left: 10%;
+        margin-top: 40px;
+        width: 20%;
+        float:left;
+    }
+
+    .orderText{
+        margin-right: 10%;
+        margin-top: 10px;
+        width: 50%;
+        float:right;
         font-size: 1em;
     }
-
-    .logout{
-        top:70%;
-    }
-
-    a{
-        color:black;
-        text-decoration: none;
-    }
-
-    a p{
-        margin: 25px 0px;
-    }
-
-    .selected{
-        color: #3B74F0;
-    }
-    .container{
-        position:relative;
-        left:200px;
-    }
-    .logo{
-        display: block;
-    }
-}
-        }

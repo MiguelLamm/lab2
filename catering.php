@@ -4,8 +4,8 @@
     include_once("classes/order.class.php");
 
     session_start();
-    $c = $_SESSION['userid'];
-    if(empty($c)){
+    $c = $_SESSION['adm'];
+    if($c == 0){
       header("location: login.php");
     }
 
@@ -27,7 +27,7 @@
 <html lang="en">
 
 <head>
-    <title>Lab 2</title>
+    <title>Foodcart - Catering</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
@@ -45,8 +45,8 @@
   <div class="sidebar">
       
       <div class="nav">
-        <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
+      <a href="index.php"> <p> <img src="images/dashboard.svg" />  Overview</p> </a>
+        <a href="catering.php"> <p class="selected"> <img src="images/order2.svg"/>  Orders</p> </a>
         <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>

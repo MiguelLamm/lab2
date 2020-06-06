@@ -37,10 +37,9 @@
 
   <div class="sidebar">
       
-      <div class="nav">
+  <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="orders.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
-        <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
+        <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 
@@ -55,29 +54,28 @@
       <p class="section">Recepten van deze week</p>
 
       <div class="clearfix">
+        <div class="menus">
+      <p class="section">Recepten van deze week</p>
+
+      <div class="clearfix">
         <div class="menu menu1">
           <img class="fotoFood" src="images/burger.svg" />
           <p>Hamburger</p>
         </div>
 
         <div class="menu menu2">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
+          <img class="fotoFood" src="images/pizza.svg" />
+          <p>Pizza</p>
         </div>
 
         <div class="menu menu3">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
+          <img class="fotoFood" src="images/slaatje.svg" />
+          <p>Slaatje</p>
         </div>
 
         <div class="menu menu4">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
-        </div>
-
-        <div class="menu menu5">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
+          <img class="fotoFood" src="images/pasta.svg" />
+          <p>Pasta</p>
         </div>
       </div>
 
