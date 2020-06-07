@@ -15,7 +15,8 @@
     $order = new Order();
     $order->setBD($BD);
     $order->setED($ED);
-    $result = $order->getOrders();
+    $order->setUser($_SESSION['userid']);
+    $result = $order->getMyOrders();
   
     //var_dump($result);
     //var_dump($result2);
@@ -32,7 +33,7 @@
 <html lang="en">
 
 <head>
-    <title>Foodcart - Catering</title>
+    <title>Foodcart - Mijn Orders</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
@@ -44,7 +45,7 @@
 
 <div class="topbar">
     <a href="index.php"><div class="logo"> </div></a>
-    <p class="title">Foodcart - Catering</p>
+    <p class="title">Foodcart - Orders</p>
     <a href="profile.php"><div class="account"><img src="images/user.svg" /> </div> </a>
   </div>
 
@@ -59,7 +60,7 @@
       <?php } else { ?>
         <div class="nav">
         <a href="orders.php"> <p> <img src="images/order.svg"/>  Order</p> </a>
-        <a href="myOrders.php"> <p> <img src="images/food.svg"/>  Mijn orders</p> </a>
+        <a href="myOrders.php"> <p class="selected"> <img src="images/food2.svg"/>  Mijn orders</p> </a>
       </div>
       <?php }; ?>
 
@@ -71,7 +72,7 @@
   <div class="container">
 
     <div class="bestellingen">
-      <p class="section">Bestellingen deze week</p>
+      <p class="section">Bestellingen deze week voor jouw:</p>
 
       <div class="clearfix">
             <?php foreach($result as $r): ?>
@@ -81,8 +82,8 @@
                             <img src="images/order2.svg" width="40px" />
                         </div>
                         <div class="orderText">
-                            <p class="size"><?php $totaal = $r["COUNT(id)"] + 235; echo $totaal; ?></p>
-                            <p><?php echo $r['order']; ?> <br /> <?php echo $r['deliverydate']; ?></p>
+                            <p><h2 class="ch2"><?php echo $r['order']; ?></h2></p>
+                            <p> <?php echo $r['deliverydate']; ?></p>
                         </div>
                     </div>
                 </div>

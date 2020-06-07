@@ -44,11 +44,18 @@
 
   <div class="sidebar">
       
+    <?php if($_SESSION['adm'] === "1"){ ?>
       <div class="nav">
-        <a href="index.php"> <img src="images/dashboard.svg" />  Overview </a>
+        <a href="index.php"> <p> <img src="images/dashboard.svg" />  Overview</p> </a>
         <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p class="selected"> <img src="images/food2.svg"/>  Menus</p> </a>
       </div>
+      <?php } else { ?>
+        <div class="nav">
+        <a href="orders.php"> <p class="selected"> <img src="images/order2.svg"/>  Order</p> </a>
+        <a href="myOrders.php"> <p> <img src="images/food.svg"/>  Mijn orders</p> </a>
+      </div>
+      <?php }; ?>
 
       <div class="logout">
       <a href="logout.php"> <p> <img src="images/logout.svg"/>  Logout</p> </a>
