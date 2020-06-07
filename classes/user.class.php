@@ -9,6 +9,7 @@
         private $school;
         private $credit;
         private $id;
+        private $admod;
 
         public function getNaam(){
             return $this->naam;
@@ -109,6 +110,15 @@
         public function setId($id){
             $this->id = $id;
         }
+
+        public function getAdmod(){
+                return $this->admod;
+        }
+
+        public function setAdmod($admod){
+                $this->admod = $admod;
+                return $this;
+        }
         
         public function register(){
                 $options = [
@@ -148,7 +158,7 @@
 
             $result = $statement->execute();
 
-            //var_dump($user['id']);
+            var_dump($user['id']);
             
             //array overzetten naar variable
             $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -214,7 +224,7 @@
         try {
             //$conn = Db::getInstance();
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
-            $statement = $conn->prepare("update user set email = :email, naam = :naam, voornaam = :voornaam, pass = :password, school = :school where id = :userid");
+            $statement = $conn->prepare("update user set email = :email, naam = :voornaam, voornaam = :naam, pass = :password, school = :school where id = :userid");
             $statement->bindParam(":email",$this->email);
             $statement->bindParam(":naam",$this->naam);
             $statement->bindParam(":voornaam",$this->voornaam);
