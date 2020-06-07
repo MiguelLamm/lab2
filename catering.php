@@ -46,8 +46,7 @@
       
       <div class="nav">
       <a href="index.php"> <p> <img src="images/dashboard.svg" />  Overview</p> </a>
-        <a href="catering.php"> <p class="selected"> <img src="images/order2.svg"/>  Orders</p> </a>
-        <a href="clients.php"> <p> <img src="images/support.svg"/>  Clients</p> </a>
+        <a href="catering.php"> <p class="selected"> <img src="images/order2.svg"/>  Cateraars</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
 
