@@ -36,12 +36,18 @@
   </div>
 
   <div class="sidebar">
-      
-  <div class="nav">
+      <?php if($_SESSION['adm'] === "1"){ ?>
+      <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="catering.php"> <p> <img src="images/order.svg"/>Cateraars</p> </a>
+        <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
+      <?php } else { ?>
+        <div class="nav">
+        <a href="orders.php"> <p class="selected"> <img src="images/order2.svg"/>  Order</p> </a>
+        <a href="myOrders.php"> <p> <img src="images/food.svg"/>  Mijn orders</p> </a>
+      </div>
+      <?php }; ?>
 
       <div class="logout">
       <a href="logout.php"> <p> <img src="images/logout.svg"/>  Logout</p> </a>
@@ -110,50 +116,7 @@
           <div class="total"> <div class="number" style="width:calc(0.27 * 100%);"></div> </div>
         </div>
 
-        <div class="order order5">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.85 * 100%);"></div> </div>
-        </div>
-
       <p><a href="order.php" class="zieMeer">Zie meer</p>
-    </div>
-
-    <div class="clients">
-      <p class="section">Beste klanten deze week</p>
-
-      <div class="clearfix">
-        <div class="client client1" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client2" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client3" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client4" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-        <div class="client client5" style="background-color:aqua;">
-          <p class="bold">Facebook</p>
-          <p>Aantal bestellingen: 470</p>
-          <p>www.facebook.com
-        </div>
-
-      <p><a href="clients.php" class="zieMeer">Zie meer</p>
     </div>
 
   </div>

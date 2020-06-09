@@ -2,24 +2,33 @@
     /* require_once('bootstrap.php'); */
 
     session_start();
+    $c = $_SESSION['userid'];
+    if(empty($c)){
+      header("location: login.php");
+    }
+
+    $BD = date('Y-m-d', strtotime("now"));
+    $ED = date('Y-m-d', strtotime("+1 week"));
+
+    $order = new Order();
+    $order->setBD($BD);
+    $order->setED($ED);
+    $result = $order->getOrders();
   
     
-    /*if($_SESSION['adm'] == 1){
-      
-    }else{
-      //BYE FELISHA
-      header("location: index.php");
-    }
-  */
-    //$posts = new Post;
-    //$posts = $posts->showReq();
+    // echo date('Y-m-d', strtotime("now")) 
+    // , "\n";
+    // echo strtotime("+1 day"), "\n";
+    // echo date('Y-m-d', strtotime("+1 week")), "\n";
+    // echo strtotime("+1 week 2 days 4 hours 2 seconds"), "\n";
+    // echo strtotime("next Thursday"), "\n";
 
     ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Foodcart - Overview</title>
+    <title>Foodcart - Catering</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
@@ -29,22 +38,23 @@
 
 <body>
 
-  <div class="topbar">
+<div class="topbar">
     <a href="index.php"><div class="logo"> </div></a>
-    <p class="title">Foodcart Overview</p>
+    <p class="title">Foodcart - Catering</p>
     <a href="profile.php"><div class="account"><img src="images/user.svg" /> </div> </a>
   </div>
 
   <div class="sidebar">
-      <?php if($_SESSION['adm'] === "1"){ ?>
+      
+    <?php if($_SESSION['adm'] === "1"){ ?>
       <div class="nav">
-        <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
-        <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
+        <a href="index.php"> <p> <img src="images/dashboard.svg" />  Overview</p> </a>
+        <a href="catering.php"> <p class="selected"> <img src="images/order2.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
       <?php } else { ?>
         <div class="nav">
-        <a href="orders.php"> <p class="selected"> <img src="images/order2.svg"/>  Order</p> </a>
+        <a href="orders.php"> <p> <img src="images/order.svg"/>  Order</p> </a>
         <a href="myOrders.php"> <p> <img src="images/food.svg"/>  Mijn orders</p> </a>
       </div>
       <?php }; ?>
@@ -56,63 +66,24 @@
 
   <div class="container">
 
-    <div class="menus">
-      <p class="section">Recepten van deze week</p>
+    <div class="bestellingen">
+      <p class="section">Bestellingen deze week</p>
 
       <div class="clearfix">
-        <div class="menu menu1">
-          <img class="fotoFood" src="images/burger.svg" />
-          <p>Hamburger</p>
-        </div>
-
-        <div class="menu menu2">
-          <img class="fotoFood" src="images/pizza.svg" />
-          <p>Pizza</p>
-        </div>
-
-        <div class="menu menu3">
-          <img class="fotoFood" src="images/slaatje.svg" />
-          <p>Slaatje</p>
-        </div>
-
-        <div class="menu menu4">
-          <img class="fotoFood" src="images/pasta.svg" />
-          <p>Pasta</p>
-        </div>
+            <?php foreach($result as $r): ?>
+                <div class="bestelling">
+                    <div class="clearfix">
+                        <div class="orderPage">
+                            <img src="images/order2.svg" width="40px" />
+                        </div>
+                        <div class="orderText">
+                            <p class="size"><?php $totaal = $r["COUNT(id)"] + 235; echo $totaal; ?></p>
+                            <p><?php echo $r['order']; ?> <br /> <?php echo $r['deliverydate']; ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach;?>
       </div>
-
-      <p><a href="menus.php" class="zieMeer">Zie meer</p>
-    </div>
-
-    <div class="orders">
-      <p class="section">Orders van deze week</p>
-
-      <div class="clearfix">
-        <div class="order order1">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.58 * 100%);"></div> </div>
-        </div>
-
-        <div class="order order2">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.65 * 100%);"></div> </div>
-        </div>
-
-        <div class="order order3">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.35 * 100%);"></div> </div>
-        </div>
-
-        <div class="order order4">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.27 * 100%);"></div> </div>
-        </div>
-
-      <p><a href="order.php" class="zieMeer">Zie meer</p>
     </div>
 
   </div>
