@@ -2,7 +2,7 @@
     //require_once('bootstrap.php');
     include_once("classes/user.class.php");
     include_once("classes/order.class.php");
-
+    // test
     session_start();
     $c = $_SESSION['userid'];
     if(empty($c)){
