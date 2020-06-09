@@ -22,16 +22,19 @@ if(isset($_SESSION['naam'])){
         
         //ja login
         if(password_verify($password,$user['pass'])){
-            echo "yes man";
             session_start();
             
             $_SESSION['userid'] = $user['id'];
-            $_SESSION['email'] = $user['email'];
             $_SESSION['naam']= $user['naam'];
             $_SESSION['email']= $user['email'];
             $_SESSION['adm']= $user['admod'];
             
-            echo '<script>window.location = "index.php"</script>';
+            if($_SESSION['adm'] === "1"){
+                echo '<script>window.location = "index.php"</script>';
+            } else {
+                echo '<script>window.location = "profile.php"</script>';
+            }
+            
         } else {
             $error= "Verkeerde email of wachtwoord ingevoerd. Probeer opnieuw";
         }
@@ -42,7 +45,7 @@ if(isset($_SESSION['naam'])){
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Foodcart - Login</title>
+  <title>login</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/screen.css">

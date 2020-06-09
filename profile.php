@@ -6,17 +6,6 @@
     include_once(__DIR__ . "/classes/db.class.php");
     include_once(__DIR__ . "/classes/user.class.php");
 
-    /*if($_SESSION['adm'] == 1){
-      
-    }else{
-      //BYE FELISHA
-      header("location: index.php");
-    }
-    */
-
-    //$posts = new Post;
-    //$posts = $posts->showReq();
-
     if(!empty($_POST)){
 
       $u = new User();
@@ -44,12 +33,15 @@
   }
 
   //$conn = Db::getInstance();
-  $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","root", null);
+  $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
   $statement = $conn->prepare("select * from user where id = '" . $_SESSION['userid'] . "'");
   $statement->execute();
   if( $statement->rowCount() > 0){
       $user = $statement->fetch(); // array van resultaten opvragen
   };
+  
+
+    ?>
   
 
     ?>
@@ -75,11 +67,18 @@
 
   <div class="sidebar">
       
-  <div class="nav">
-        <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
+    <?php if($_SESSION['adm'] === "1"){ ?>
+      <div class="nav">
+        <a href="index.php"> <p> <img src="images/dashboard.svg" />  Overview</p> </a>
         <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
       </div>
+      <?php } else { ?>
+        <div class="nav">
+        <a href="orders.php"> <p> <img src="images/order.svg"/>  Order</p> </a>
+        <a href="myOrders.php"> <p> <img src="images/food.svg"/>  Mijn orders</p> </a>
+      </div>
+      <?php }; ?>
 
       <div class="logout">
       <a href="logout.php"> <p> <img src="images/logout.svg"/>  Logout</p> </a>

@@ -33,7 +33,7 @@ if(!empty($_POST['date'])){
             $status = $post->orderNow();
             var_dump($status);
             if ($status === true){
-                         echo '<script>window.location = "gelukt.php"</script>';
+                         //echo '<script>window.location = "index.php"</script>';
                          echo 'hellow';
             }
             else if($status== false){
@@ -46,8 +46,8 @@ if(!empty($_POST['date'])){
             switch ($i){
                 case "hamburger":
                     echo "gekoze";
-                    if($myCr >= 1.50){
-                    $myCr = $myCr - 1.50;
+                    if($myCr >= 3.50){
+                    $myCr = $myCr - 3.50;
                     $credits2 = new User();
                     $credits2->setId($me);
                     $credits2->setCredit($myCr);
@@ -64,8 +64,8 @@ if(!empty($_POST['date'])){
                 }
                 break;
                 case "veggieburger":
-                    if($myCr >= 1.20){
-                    $myCr = $myCr - 1.20;
+                    if($myCr >= 3.20){
+                    $myCr = $myCr - 3.20;
                     $credits2 = new User();
                     $credits2->setId($me);
                     $credits2->setCredit($myCr);
@@ -82,8 +82,8 @@ if(!empty($_POST['date'])){
                 }
                 break;
                 case "wrap":
-                    if($myCr >= 1.20){
-                    $myCr = $myCr - 1.20;
+                    if($myCr >= 3.20){
+                    $myCr = $myCr - 3.20;
                     $credits2 = new User();
                     $credits2->setId($me);
                     $credits2->setCredit($myCr);
@@ -100,8 +100,8 @@ if(!empty($_POST['date'])){
                 }
                 break;
                 case "smos kaas en hesp":
-                    if($myCr >= 1.50){
-                    $myCr = $myCr - 1.50;
+                    if($myCr >= 3.50){
+                    $myCr = $myCr - 3.50;
                     $credits2 = new User();
                     $credits2->setId($me);
                     $credits2->setCredit($myCr);
@@ -170,7 +170,7 @@ if(!empty($_POST['date'])){
 
   <div class="sidebar">
       
-  <div class="nav">
+      <div class="nav">
         <a href="index.php"> <p class="selected"> <img src="images/dashboard2.svg" />  Overview</p> </a>
         <a href="catering.php"> <p> <img src="images/order.svg"/>  Orders</p> </a>
         <a href="menus.php"> <p> <img src="images/food.svg"/>  Menus</p> </a>
@@ -182,12 +182,6 @@ if(!empty($_POST['date'])){
   </div>
 
   <div class="container">
-  <div class="credit">
-            <div class="labelCR">Jouw crediet:
-            <?php
-                echo "<p id=CR>€".$creditstatus['credit']."</p>";
-            ?>
-        </div>
         <form class="form" action="orders.php" method="post" enctype="multipart/form-data">
 
             <div class="form__field">
@@ -195,7 +189,6 @@ if(!empty($_POST['date'])){
                 <input class="form_date input" type="date" name="date" placeholder="'date'"><br>
             </div>
 
-           
             <div class="form__field">
                 <label for="radio">Kies maaltijd</label> <br />
                 <label>
@@ -222,9 +215,9 @@ if(!empty($_POST['date'])){
             <div class="form__field">
 				<label for="school">School</label> <br />
 				<select class="input" name="school">
-                    <option value="Bimsem Mechelen">Bimsem Mechelen</option>
-                    <option value="Urselinnen Mechelen">Urselinnen Mechelen</option>
-                    <option value="Lyceum Mechelen">Lyceum Mechelen</option>
+                    <option value="bimsemM">Bimsem Mechelen</option>
+                    <option value="urselinnenM">Urselinnen Mechelen</option>
+                    <option value="lyceumM">Lyceum Mechelen</option>
 				</select>
 			</div>
 
@@ -232,7 +225,12 @@ if(!empty($_POST['date'])){
             <button class="submit" type="submit" name="upload">Verzend</button>
         </form>
 
-       
+        <div class="credit">
+            <div class="labelCR">Jouw crediet:
+            <?php
+                echo "<p id=CR>€".$creditstatus['credit']."</p>";
+            ?>
+        </div>
         
         <?php
                 if (isset($feedback)) {

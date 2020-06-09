@@ -5,7 +5,8 @@
     private $date;
     private $school;
     private $bD;
-    private $eD;
+	private $eD;
+	private $user;
 
 	public function getOrder(){
 		return $this->order;
@@ -46,14 +47,23 @@
 		$this->eD = $eD;
 	}
 
+	public function getUser(){
+		return $this->user;
+	}
+
+	public function setUser($user){
+		$this->user = $user;
+	}
+
     public function orderNow(){
        
         $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
-        $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`) VALUES(:order , :school , :deliverydate)");
+        $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`, 'userid') VALUES(:order , :school , :deliverydate, :me)");
         
         $statement->bindValue(":order" , $this->order);
         $statement->bindValue(":school" , $this->school);
-        $statement->bindValue(":deliverydate",$this->date);
+		$statement->bindValue(":deliverydate",$this->date);
+		$statement->bindValue(":me",$this->user);
 
         $result = $statement->execute();
         
@@ -68,8 +78,18 @@
         $statement->bindValue(":ed" , $this->eD);
         $statement->execute();
         $result2 = $statement -> fetchAll();
-        return $result2;
-        
+        return $result2;  
+	}
+	
+	public function getMyOrders(){
+        $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+        $statement = $conn->prepare("SELECT `order`,`school`,`deliverydate` from orders WHERE userid = :user AND deliverydate BETWEEN :bd AND :ed");
+        $statement->bindValue(":bd" , $this->bD);
+		$statement->bindValue(":ed" , $this->eD);
+		$statement->bindValue(":user" , $this->user);
+        $statement->execute();
+        $result2 = $statement -> fetchAll();
+        return $result2;  
     }
    
  }//
