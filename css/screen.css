@@ -231,6 +231,10 @@ body {
         font-weight: bold;
         color: black
     }
+
+    .ch2{
+        margin-top: 20px;
+    }
     
     .formulier {
         width: 55%;
