@@ -25,6 +25,11 @@
     <link rel="stylesheet" type="text/css" href="css/screen.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="theme-color" content="#272727">
+    <style type="text/css">
+      .bestellingen{
+        margin-top: 40px;
+      }
+    </style>
 </head>
 
 <body>
@@ -56,7 +61,7 @@
 
   <div class="container">
 
-    <div class="menus">
+  <div class="menus">
       <p class="section">Recepten van deze week</p>
 
       <div class="clearfix">
@@ -84,39 +89,35 @@
           <p>Pasta</p>
         </div>
       </div>
-
-      <p><a href="menus.php" class="zieMeer">Zie meer</p>
     </div>
 
-    <div class="orders">
+    <div class="bestellingen">
       <p class="section">Orders van deze week</p>
 
       <div class="clearfix">
-        <div class="order order1">
+        <div class="bestelling">
           <p>Hamburgers Ordered</p>
           <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.58 * 100%);"></div> </div>
+          <div class="total"> <div class="number" style="width:calc(1 * 100%);"></div> </div>
         </div>
 
-        <div class="order order2">
-          <p>Hamburgers Ordered</p>
+        <div class="bestelling">
+          <p>Pizza Ordered</p>
+          <p class="size">235</p>
+          <div class="total"> <div class="number" style="width:calc(1 * 100%);"></div> </div>
+        </div>
+
+        <div class="bestelling">
+          <p>Slaatje Ordered</p>
           <p class="size">235</p>
           <div class="total"> <div class="number" style="width:calc(0.65 * 100%);"></div> </div>
         </div>
 
-        <div class="order order3">
-          <p>Hamburgers Ordered</p>
-          <p class="size">235</p>
-          <div class="total"> <div class="number" style="width:calc(0.35 * 100%);"></div> </div>
-        </div>
-
-        <div class="order order4">
-          <p>Hamburgers Ordered</p>
+        <div class="bestelling">
+          <p>Pasta Ordered</p>
           <p class="size">235</p>
           <div class="total"> <div class="number" style="width:calc(0.27 * 100%);"></div> </div>
         </div>
-
-      <p><a href="order.php" class="zieMeer">Zie meer</p>
     </div>
 
   </div>
