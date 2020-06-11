@@ -19,7 +19,7 @@
 <html lang="en">
 
 <head>
-    <title>Foodcart - Overview</title>
+    <title>Foodcart - Menus</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
@@ -38,7 +38,7 @@
 
   <div class="topbar">
     <a href="index.php"><div class="logo"> </div></a>
-    <p class="title">Foodcart Overview</p>
+    <p class="title">Foodcart - Menus</p>
     <a href="profile.php"><div class="account"><img src="images/user.svg" /> </div> </a>
   </div>
 
