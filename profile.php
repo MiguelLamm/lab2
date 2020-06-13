@@ -32,8 +32,8 @@
       }
   }
 
-  //$conn = Db::getInstance();
-  $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+  $conn = Db::getInstance();
+  //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
   $statement = $conn->prepare("select * from user where id = '" . $_SESSION['userid'] . "'");
   $statement->execute();
   if( $statement->rowCount() > 0){
