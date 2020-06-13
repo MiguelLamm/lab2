@@ -27,7 +27,8 @@
 
                 //echo "💥";
                 //self::$conn = new PDO('mysql:host=localhost;dbname='.$database.';charset=utf8mb4', $user, "");
-                self::$conn = new PDO($database.':host='.$host.';dbname='.$dbname.';charset=utf8mb4', $user, $password);
+                //self::$conn = new PDO($database.':host='.$host.';dbname='.$dbname.';charset=utf8mb4', $user, $password);
+                self::$conn = new PDO('mysql:host=ID245376_lab2.db.webhosting.be;dbname=ID245376_lab2';charset=utf8mb4, ID245376_lab2, admin4321);
                 return self::$conn;
             }
         }

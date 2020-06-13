@@ -56,8 +56,9 @@
 	}
 
     public function orderNow(){
-		$conn = Db::getInstance();
-        //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		//$conn = Db::getInstance();
+		//$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		$conn= new PDO('mysql:host=ID245376_lab2.db.webhosting.be;dbname=ID245376_lab2';charset=utf8mb4, ID245376_lab2, admin4321);
         $statement = $conn->prepare("insert into orders (`order`,`school`,`deliverydate`, 'userid') VALUES(:order , :school , :deliverydate, :me)");
         
         $statement->bindValue(":order" , $this->order);
@@ -72,8 +73,9 @@
 
     
     public function getOrders(){
-		$conn = Db::getInstance();
-        //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		//$conn = Db::getInstance();
+		//$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		$conn= new PDO('mysql:host=ID245376_lab2.db.webhosting.be;dbname=ID245376_lab2';charset=utf8mb4, ID245376_lab2, admin4321);
         $statement = $conn->prepare("SELECT COUNT(id), `order`,`school`,`deliverydate` from orders WHERE deliverydate BETWEEN :bd AND :ed group by `order`");
         $statement->bindValue(":bd" , $this->bD);
         $statement->bindValue(":ed" , $this->eD);
@@ -83,8 +85,9 @@
 	}
 	
 	public function getMyOrders(){
-		$conn = Db::getInstance();
-        //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		//$conn = Db::getInstance();
+		//$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+		$conn= new PDO('mysql:host=ID245376_lab2.db.webhosting.be;dbname=ID245376_lab2';charset=utf8mb4, ID245376_lab2, admin4321);
         $statement = $conn->prepare("SELECT `order`,`school`,`deliverydate` from orders WHERE userid = :user AND deliverydate BETWEEN :bd AND :ed");
         $statement->bindValue(":bd" , $this->bD);
 		$statement->bindValue(":ed" , $this->eD);
