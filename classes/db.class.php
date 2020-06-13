@@ -27,7 +27,7 @@
 
                 //echo "💥";
                 //self::$conn = new PDO('mysql:host=localhost;dbname='.$database.';charset=utf8mb4', $user, "");
-                self::$conn = new PDO($database.':host='.$hostname.';dbname='.$dbname.';charset=utf8mb4', $user, $password);
+                self::$conn = new PDO($database.':host='.$host.';dbname='.$dbname.';charset=utf8mb4', $user, $password);
                 return self::$conn;
             }
         }
