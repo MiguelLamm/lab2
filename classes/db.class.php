@@ -20,9 +20,10 @@
                 // get the configuration for our connection from one central settings file
                 $config = self::getConfig();
                 $database = $config['database'];
+                $host = $config['hostname'];
                 $user = $config['user'];
                 $password = $config['password'];
-                //$dbname = $config['dbname'];
+                $dbname = $config['dbname'];
 
                 //echo "💥";
                 //self::$conn = new PDO('mysql:host=localhost;dbname='.$database.';charset=utf8mb4', $user, "");
