@@ -1,4 +1,6 @@
 <?php
+
+require_once('bootstrap.php');
     require_once("classes/order.class.php");
     include_once("classes/user.class.php");
 
