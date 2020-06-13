@@ -129,8 +129,8 @@
 
 
             try {
-                //$conn = Db::getInstance();
-                $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+                $conn = Db::getInstance();
+                //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
                 $statement = $conn->prepare("INSERT into user (email,pass, naam, voornaam,school) VALUES(:email, :password, :naam, :voornaam, :school)");
                 $statement->bindParam(":email",$this->email);
                 $statement->bindParam(":naam",$this->naam);
@@ -149,8 +149,8 @@
     public function login(){
         
         try{
-            //$conn = Db::getInstance();
-            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $conn = Db::getInstance();
+            //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
             $statement = $conn->prepare("select * from user where email = :email");
             
             //parameter binden
@@ -184,7 +184,8 @@
 
     public function getCrdt(){
         try{
-            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $conn = Db::getInstance();
+            //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
             $statement = $conn->prepare("select credit from user where id = :userid");
             
             //parameter binden
@@ -199,7 +200,8 @@
     }
     public function payment(){
         try{
-            $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
+            $conn = Db::getInstance();
+            //$conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
             $statement = $conn->prepare("update user set credit = :cr where id = :userid");
             
             //parameter binden
@@ -222,7 +224,7 @@
 
 
         try {
-            //$conn = Db::getInstance();
+            $conn = Db::getInstance();
             $conn= new PDO("mysql:host=localhost;dbname=lab2;","root","", null);
             $statement = $conn->prepare("update user set email = :email, naam = :voornaam, voornaam = :naam, pass = :password, school = :school where id = :userid");
             $statement->bindParam(":email",$this->email);
